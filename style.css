@@ -6,43 +6,90 @@ body {
   background-attachment: fixed;
   background-color: #853eee;
   color: #ffffff; 
+  font-family: Arial, sans-serif;
 }
 
 /* Styling specifically for the navigation links at the top */
 .top-links a:link,
 .top-links a:visited,
 .top-links a:active {
-  color: #ffffff; /* Makes the links white */
-  text-decoration: none; /* Removes the underline */
-  padding: 5px 10px; /* Gives the links some space */
+  color: #ffffff;
+  text-decoration: none;
+  padding: 5px 10px;
 }
 
 .top-links a:hover {
-  color: #ff0000; /* Changes color when you hover */
-  text-decoration: underline; /* Adds underline on hover */
+  color: #ff0000;
+  text-decoration: underline;
+}
+
+/* Styling for general links (like Bandcamp and Physical Media) */
+a:link,
+a:visited,
+a:active {
+  color: #ffffff;
+}
+
+a:hover {
+  color: #ff0000;
+  text-decoration: underline;
 }
 
 /* Styling for other text elements */
 p {
   color: #ffffff;
-  font-family: fantasy;
+  font-family: Arial, sans-serif;
   font-size: 20px;
 }
 
 h1 {
+  font-family: Arial, sans-serif;
   font-weight: bold;
   font-size: 20px;
   color: #ffffff;
 }
 
 h3 {
+  font-family: Arial, sans-serif;
   font-weight: bold;
   font-size: 50px;
   color: #ffffff;
 }
 
 h2 {
+  font-family: Arial, sans-serif;
   font-size: 25px;
   font-weight: bold;
   color: #ffffff;
+}
+
+h4 {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  color: #ffffff;
+}
+
+/* Make marquee text elements larger */
+marquee h3,
+marquee h4 {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+/* Styling for list text */
+li {
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+}
+
+/* Styling for album cover images */
+img[src*="cover1.jpg"],
+img[src*="cover2.jpg"],
+img[src*="cover3.jpg"],
+img[src*="cover4(teaser).jpg"] {
+  border: 3px solid #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
