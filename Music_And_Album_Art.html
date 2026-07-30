@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Music & Album Art - ashpwup</title>
+    <!-- CSS links belong in the head section -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+      body {
+        background-color: #12081f;
+        color: #ffffff;
+        margin: 0;
+        padding-bottom: 40px;
+      }
+      .album-grid {
+        text-align: center;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+      .album-item {
+        display: inline-block;
+        vertical-align: top;
+        width: 320px;
+        margin: 0 8px 30px 8px;
+        text-align: center;
+      }
+      .album-title {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        border-top: 1px solid rgba(255, 255, 255, 0.75);
+        border-radius: 8px;
+        padding: 5px 10px;
+        margin-top: 6px;
+        margin-bottom: 10px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 
+                    0 4px 6px rgba(0, 0, 0, 0.2);
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        font-size: 14px;
+        color: #ffffff;
+        text-shadow: 1px 1px 0px #000000, 
+                     -1px -1px 0px #000000, 
+                     1px -1px 0px #000000, 
+                     -1px 1px 0px #000000;
+        letter-spacing: 1px;
+      }
+      .bandcamp-player {
+        width: 300px;
+        height: 120px;
+        border: 3px solid rgba(255, 255, 255, 0.7);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.6);
+        background: rgba(0, 0, 0, 0.2);
+        margin: 0 auto;
+      }
+      .bandcamp-player iframe {
+        width: 300px;
+        height: 120px;
+        border: 0;
+        transform: none;
+      }
+      .fake-player {
+        width: 300px;
+        height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+        background: rgba(20, 10, 35, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        text-align: center;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 3px solid rgba(255, 255, 255, 0.7);
+        border-radius: 12px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        margin: 0 auto;
+      }
+      .fake-player-text {
+        font-size: 14px;
+        font-weight: bold;
+        color: #ffffff;
+        margin-bottom: 4px;
+        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
+        letter-spacing: 1px;
+      }
+      .fake-player-sub {
+        font-size: 12px;
+        color: #ffffff;
+        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
+        letter-spacing: 1px;
+      }
+      /* Music & Physical Media Section Container */
+      .music-section-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        margin: 50px auto 30px auto;
+        max-width: 1200px;
+        flex-wrap: wrap;
+      }
+      .music-lists {
+        text-align: left;
+      }
+      .music-lists ol, 
+      .music-lists ul {
+        padding-left: 20px;
+      }
+      .music-lists li {
+        margin: 12px 0;
+      }
+      .music-lists a {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        border-top: 1px solid rgba(255, 255, 255, 0.75);
+        border-radius: 8px;
+        padding: 6px 14px;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        font-size: 14px;
+        color: #ffffff;
+        text-shadow: 1px 1px 0px #000000, 
+                     -1px -1px 0px #000000, 
+                     1px -1px 0px #000000, 
+                     -1px 1px 0px #000000;
+        letter-spacing: 1px;
+        text-decoration: none;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 
+                    0 4px 6px rgba(0, 0, 0, 0.2);
+      }
+      .music-lists a:hover {
+        background: rgba(255, 255, 255, 0.25);
+        color: #d8b4fe;
+      }
+      /* Normal Navigation bar */
+      .top-links {
+        text-align: center;
+        padding: 15px 0;
+        margin-bottom: 10px;
+        font-family: Arial, sans-serif;
+      }
+      .top-links a {
+        color: #ffffff;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        text-decoration: none;
+        margin: 0 5px;
+        background: rgba(255, 255, 255, 0.12);
+        padding: 6px 12px;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      .top-links a:hover {
+        background: rgba(255, 255, 255, 0.25);
+      }
+      /* Section Headings Style */
+      h2.section-heading {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        color: #ffffff;
+        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
+        letter-spacing: 1px;
+        margin-top: 40px;
+      }
+      /* Footer Links & Modal Styles */
+      .site-footer {
+        text-align: center;
+        margin: 40px 0 20px 0;
+        font-family: Arial, sans-serif;
+      }
+      .site-footer a {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        border-top: 1px solid rgba(255, 255, 255, 0.75);
+        border-radius: 8px;
+        padding: 6px 14px;
+        margin: 0 5px;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        font-size: 14px;
+        color: #ffffff;
+        text-shadow: 1px 1px 0px #000000, 
+                     -1px -1px 0px #000000, 
+                     1px -1px 0px #000000, 
+                     -1px 1px 0px #000000;
+        letter-spacing: 1px;
+        text-decoration: none;
+        cursor: pointer;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 
+                    0 4px 6px rgba(0, 0, 0, 0.2);
+      }
+      .site-footer a:hover {
+        background: rgba(255, 255, 255, 0.25);
+        color: #d8b4fe;
+      }
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+      .modal-content {
+        background: rgba(20, 10, 35, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 2px solid rgba(168, 85, 247, 0.4);
+        border-top: 2px solid rgba(168, 85, 247, 0.7);
+        border-radius: 12px;
+        padding: 25px;
+        width: 320px;
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
+        letter-spacing: 1px;
+      }
+      .modal-content h3 {
+        margin-top: 0;
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
+      }
+      .modal-content p, .modal-content a {
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        color: #ffffff;
+        line-height: 1.5;
+        text-align: center;
+        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
+      }
+      .modal-version-text {
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        color: #ffffff;
+        text-align: center;
+        margin-top: 5px;
+        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
+      }
+      .modal-close {
+        background: rgba(147, 51, 234, 0.6);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(216, 180, 254, 0.5);
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        padding: 6px 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
+      }
+      .modal-close:hover {
+        background: rgba(168, 85, 247, 0.8);
+        border-color: #d8b4fe;
+      }
+      .modal-content ::selection, .fake-player ::selection {
+        background: transparent;
+        color: #ffffff;
+      }
+      .modal-content ::-moz-selection, .fake-player ::-moz-selection {
+        background: transparent;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Normal Navigation Bar -->
+    <nav class="top-links">
+      <a href="index.html">Homepage</a>
+      <a href="Music_And_Album_Art.html">Music & Album Art</a>
+      <a href="socials.html">Socials</a>
+      <a href="https://kunaki.com/msales.asp?PublisherId=244930&pp=1" target="_blank">Link to all my CDs!</a>
+      <a href="https://kunaki.com/VinylRecord.asp?ProductId=PX0095OVJU" target="_blank">Arf (Deluxe) Vinyl!!</a>
+    </nav>
+
+    <!-- Album Art Marquee -->
+    <marquee>
+      <h3>Album Art & Music Hub!</h3>   
+    </marquee>
+
+    <!-- Centered Album Covers Container -->
+    <div class="album-grid">
+      
+      <!-- 1. Arf! (Deluxe) -->
+      <div class="album-item">
+        <a href="https://distrokid.com/hyperfollow/ashpwup/arf-deluxe?ref=release" target="_blank">
+          <img src="images/album covers/cover1.jpg" alt="cover 1" width="220" height="220" />
+        </a>
+        <br>
+        <div class="album-title">Arf! (Deluxe)</div>
+        <div class="bandcamp-player">
+          <iframe src="https://bandcamp.com/EmbeddedPlayer/album=2147711351/size=large/bgcol=181a1b/linkcol=262a2b/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://ashpwup.bandcamp.com/album/arf-deluxe">Arf! (Deluxe) by ashpwup</a></iframe>
+        </div>
+      </div>
+      
+      <!-- 2. RECKLESSNESS -->
+      <div class="album-item">
+        <a href="https://distrokid.com/hyperfollow/ashpwup/recklessness?ref=release" target="_blank">
+          <img src="images/album covers/cover2.jpg" alt="cover 2" width="220" height="220" />
+        </a>
+        <br>
+        <div class="album-title">RECKLESSNESS</div>
+        <div class="bandcamp-player">
+          <iframe src="https://bandcamp.com/EmbeddedPlayer/album=4253943077/size=large/bgcol=181a1b/linkcol=b21f0c/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://ashpwup.bandcamp.com/album/recklessness">RECKLESSNESS by ashpwup</a></iframe>
+        </div>
+      </div>
+      
+      <!-- 3. PuppySoundSystem Vol. 1 -->
+      <div class="album-item">
+        <a href="https://distrokid.com/hyperfollow/ashpwup/puppysoundsystem-vol-1?ref=release" target="_blank">
+          <img src="images/album covers/cover3.jpg" alt="cover 3" width="220" height="220" />
+        </a>
+        <br>
+        <div class="album-title">PuppySoundSystem Vol. 1</div>
+        <div class="bandcamp-player">
+          <iframe src="https://bandcamp.com/EmbeddedPlayer/album=4168882320/size=large/bgcol=181a1b/linkcol=4c1da3/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://ashpwup.bandcamp.com/album/puppysoundsystem-vol-1">PuppySoundSystem Vol. 1 by ashpwup</a></iframe>
+        </div>
+      </div>
+      
+      <!-- 4. Teaser -->
+      <div class="album-item">
+        <img src="images/album covers/cover4(teaser).jpg" alt="cover4(teaser)" width="220" height="220" />
+        <br>
+        <div class="album-title">teaser for my next album :333</div>
+        <div class="fake-player">
+          <div class="fake-player-text">no player yet!</div>
+          <div class="fake-player-sub">releasing august 15th</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Memes Marquee -->
+    <marquee>
+      <h4>Memes</h4>
+    </marquee>
+
+    <!-- Centered Meme Images at the bottom -->
+    <div style="text-align: center;">
+      <img src="images/Image2.jpg" alt="nova meme image" width="1000" height="600" /><br><br>
+      <img src="images/Image1.png" alt="mayu image" width="1000" height="600"/>
+    </div>
+
+    <!-- Footer with Small Hyperlinks -->
+    <footer class="site-footer">
+      <a onclick="openModal('contactModal')">Contact Info</a> 
+      <a onclick="openModal('versionModal')">Website Version Info</a>
+    </footer>
+
+    <!-- Contact Info Modal -->
+    <div id="contactModal" class="modal-overlay" onclick="outsideClick(event, 'contactModal')">
+      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <h3>Contact Info</h3>
+        <p style="text-align: center; width: 100%;">Email: <a href="mailto:ash.08.514812@gmail.com">ash.08.514812@gmail.com</a></p>
+        <p style="text-align: center; width: 100%;">If you need my phone number, please contact me via email first before requesting it!</p>
+        <button class="modal-close" onclick="closeModal('contactModal')">Close</button>
+      </div>
+    </div>
+
+    <!-- Version Info Modal -->
+    <div id="versionModal" class="modal-overlay" onclick="outsideClick(event, 'versionModal')">
+      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <h3>Website Version</h3>
+        <p class="modal-version-text" style="text-align: center; width: 100%;">Current Version: <strong>Version 2.1</strong></p>
+        <button class="modal-close" onclick="closeModal('versionModal')">Close</button>
+      </div>
+    </div>
+
+    <!-- Simple JavaScript for Modals -->
+    <script>
+      function openModal(modalId) {
+        document.getElementById(modalId).style.display = 'flex';
+      }
+      function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+      }
+      function outsideClick(event, modalId) {
+        if (event.target === document.getElementById(modalId)) {
+          closeModal(modalId);
+        }
+      }
+    </script>
+    
+  </body>
+</html>
