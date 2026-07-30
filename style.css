@@ -1,4 +1,7 @@
 body {
+  cursor: url('images/cursors/32x32/select.png'), auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
   background-image: url('images/background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -13,36 +16,75 @@ body {
 .top-links a:link,
 .top-links a:visited,
 .top-links a:active {
+  cursor: url('images/cursors/32x32/select.png'), auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
   color: #ffffff;
   text-decoration: none;
-  padding: 5px 10px;
+  padding: 6px 14px;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-top: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 8px;
+  margin: 4px 2px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 
+              0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
 }
 
 .top-links a:hover {
-  color: #ff0000;
+  color: #d8b4fe;
+  text-shadow: 0px 0px 8px rgba(216, 180, 254, 0.8), 
+               1px 1px 0px #000000, 
+               -1px -1px 0px #000000, 
+               1px -1px 0px #000000, 
+               -1px 1px 0px #000000;
   text-decoration: underline;
+  cursor: url('images/cursors/32x32/hover.png'), pointer;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(216, 180, 254, 0.6);
 }
 
 /* Styling for general links (like Bandcamp and Physical Media) */
 a:link,
 a:visited,
 a:active {
+  cursor: url('images/cursors/32x32/select.png'), auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
   color: #ffffff;
 }
 
 a:hover {
-  color: #ff0000;
+  color: #d8b4fe;
+  text-shadow: 0px 0px 8px rgba(216, 180, 254, 0.8), 
+               1px 1px 0px #000000, 
+               -1px -1px 0px #000000, 
+               1px -1px 0px #000000, 
+               -1px 1px 0px #000000;
   text-decoration: underline;
+  cursor: url('images/cursors/32x32/hover.png'), pointer;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
 }
 
 /* Styling for other text elements */
 p {
+  cursor: url('images/cursors/32x32/select.png'), auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
   color: #ffffff;
   font-family: Arial, sans-serif;
   font-size: 20px;
 }
 
 h1 {
+  cursor: url('images/cursors/32x32/select.png'), auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
   font-family: Arial, sans-serif;
   font-weight: bold;
   font-size: 20px;
@@ -50,6 +92,9 @@ h1 {
 }
 
 h3 {
+  cursor: url('images/cursors/32x32/select.png'), auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
   font-family: Arial, sans-serif;
   font-weight: bold;
   font-size: 50px;
@@ -57,6 +102,9 @@ h3 {
 }
 
 h2 {
+  cursor: url('images/cursors/32x32/select.png'), auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
   font-family: Arial, sans-serif;
   font-size: 25px;
   font-weight: bold;
@@ -64,6 +112,9 @@ h2 {
 }
 
 h4 {
+  cursor: url('images/cursors/32x32/select.png'), auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
   font-family: Arial, sans-serif;
   font-weight: bold;
   font-size: 30px;
@@ -78,18 +129,172 @@ marquee h4 {
   font-size: 50px;
 }
 
-/* Styling for list text */
-li {
-  font-family: Arial, sans-serif;
-  color: #ffffff;
+/* Add a rounded white border with a shadow to all images across the site */
+img {
+  border: 3px solid rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease;
 }
 
-/* Styling for album cover images */
-img[src*="cover1.jpg"],
-img[src*="cover2.jpg"],
-img[src*="cover3.jpg"],
-img[src*="cover4(teaser).jpg"] {
-  border: 3px solid #ffffff;
+/* Light purple glow effect and hover cursor when hovering over images (like album covers) */
+img:hover {
+  border-color: #d8b4fe;
+  box-shadow: 0px 0px 20px 5px rgba(216, 180, 254, 0.8);
+  transform: scale(1.02);
+  cursor: url('images/cursors/32x32/hover.png'), pointer;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Light purple glow effect and hover cursor when hovering over hyperlinks containing images */
+a:hover img {
+  border-color: #d8b4fe;
+  box-shadow: 0px 0px 20px 5px rgba(216, 180, 254, 0.8);
+  cursor: url('images/cursors/32x32/hover.png'), pointer;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Windows 7 / Retro Pixelated Text Effect */
+body, p, h1, h2, h3, h4, li, a {
+  text-shadow: 1px 1px 0px #000000, 
+               -1px -1px 0px #000000, 
+               1px -1px 0px #000000, 
+               -1px 1px 0px #000000;
+  letter-spacing: 1px;
+}
+
+/* Windows 7 Glassy Container Style for Paragraphs & Headings */
+p, h1, h2, h3, h4 {
+  display: block;
+  width: fit-content;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-top: 1px solid rgba(255, 255, 255, 0.75);
   border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  padding: 6px 14px;
+  margin: 8px 0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 
+              0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Glassy container style applied to lists while preserving list numbers/bullets */
+ol, ul {
+  padding-left: 30px;
+  width: fit-content;
+}
+
+li {
+  cursor: url('images/cursors/32x32/select.png'), auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  display: list-item;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-top: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 8px;
+  padding: 6px 14px;
+  margin: 8px 0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 
+              0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Windows 7 Glassy Container Style for Album Titles */
+.album-title {
+  cursor: url('images/cursors/32x32/select.png'), auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-top: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 8px;
+  padding: 6px 14px;
+  margin-top: 8px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 
+              0 4px 6px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: #ffffff;
+  text-shadow: 1px 1px 0px #000000, 
+               -1px -1px 0px #000000, 
+               1px -1px 0px #000000, 
+               -1px 1px 0px #000000;
+  letter-spacing: 1px;
+}
+
+/* Embed & Fake Player Cursors */
+.bandcamp-player,
+.bandcamp-player iframe,
+.fake-player,
+.fake-player-text,
+.fake-player-sub {
+  cursor: url('images/cursors/32x32/select.png'), auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.bandcamp-player:hover,
+.bandcamp-player iframe:hover,
+.fake-player:hover,
+.fake-player-text:hover,
+.fake-player-sub:hover {
+  cursor: url('images/cursors/32x32/hover.png'), pointer;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Footer buttons/links and Modal Close Button Cursors */
+.site-footer a,
+.modal-close {
+  cursor: url('images/cursors/32x32/select.png'), auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.site-footer a:hover,
+.modal-close:hover {
+  cursor: url('images/cursors/32x32/hover.png'), pointer;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Combined Music Section Layout Styles */
+.music-section-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  margin: 50px auto 30px auto;
+  max-width: 1200px;
+  flex-wrap: wrap;
+}
+
+.music-lists {
+  text-align: left;
+}
+
+.music-lists ol, 
+.music-lists ul {
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
+
+.music-lists li {
+  margin: 10px 0;
+}
+
+.music-lists a {
+  color: #ffffff;
+  text-decoration: none;
+  text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
+}
+
+.music-lists a:hover {
+  color: #d8b4fe;
 }
