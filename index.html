@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
     <!-- CSS links belong in the head section -->
     <link rel="stylesheet" href="style.css">
     <title>Homepage</title>
     <style>
-      body {
+      html, body {
+        height: 100%;
         margin: 0;
-        padding-bottom: 40px;
+        padding: 0;
+      }
+      body {
+        background-image: url('images/background.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .main-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
       .home-content {
         max-width: 800px;
@@ -46,7 +64,7 @@
       /* Footer Links & Modal Styles */
       .site-footer {
         text-align: center;
-        margin: 40px 0 20px 0;
+        margin: 20px 0 30px 0;
         font-family: Arial, sans-serif;
       }
       .site-footer a {
@@ -145,26 +163,28 @@
   </head>
   <body>
 
-    <!-- Normal Navigation Bar -->
-    <nav class="top-links">
-      <a href="index.html">Homepage</a>
-      <a href="Music_And_Album_Art.html">Music & Album Art</a>
-      <a href="socials.html">Socials</a>
-      <a href="https://kunaki.com/msales.asp?PublisherId=244930&pp=1" target="_blank">Link to all my CDs!</a>
-      <a href="https://kunaki.com/VinylRecord.asp?ProductId=PX0095OVJU" target="_blank">Arf (Deluxe) Vinyl!!</a>
-    </nav>
+    <div class="main-wrapper">
+      <!-- Normal Navigation Bar -->
+      <nav class="top-links">
+        <a href="index.html">Homepage</a>
+        <a href="Music_And_Album_Art.html">Music & Album Art</a>
+        <a href="socials.html">Socials</a>
+        <a href="https://kunaki.com/msales.asp?PublisherId=244930&pp=1" target="_blank">Link to all my CDs!</a>
+        <a href="https://kunaki.com/VinylRecord.asp?ProductId=PX0095OVJU" target="_blank">Arf (Deluxe) Vinyl!!</a>
+      </nav>
 
-    <!-- Welcome Marquee -->
-    <marquee>
-      <h3>Welcome to my website!</h3>
-    </marquee>
+      <!-- Welcome Marquee -->
+      <marquee>
+        <h3>Welcome to my website!</h3>
+      </marquee>
 
-    <!-- Main Content Container with constrained width and centered text -->
-    <div class="home-content">
-      <p>
-        hi im ash :3 welcome to my site !! i just kinda do whatever, mostly making music, messing with 3d character models, rigging, and painting up custom textures for vrc. i also do physical media stuff and other random creative projects whenever i feel like it.<br><br>
-        feel free to look around at my music, check out my avatars, or go to my links for my socials if ur interested :3
-      </p>
+      <!-- Main Content Container with constrained width and centered text -->
+      <div class="home-content">
+        <p>
+          hi im ash :3 welcome to my site !! i just kinda do whatever, mostly making music, messing with 3d character models, rigging, and painting up custom textures for vrc. i also do physical media stuff and other random creative projects whenever i feel like it.<br><br>
+          feel free to look around at my music, check out my avatars, or go to my links for my socials if ur interested :3
+        </p>
+      </div>
     </div>
 
     <!-- Footer with Small Hyperlinks -->
