@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Error District</title>
+    <!-- CSS links belong in the head section -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+      body {
+        background-color: #12081f;
+        color: #ffffff;
+        margin: 0;
+        padding-bottom: 40px;
+      }
+      .album-grid {
+        text-align: center;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+      .album-item {
+        display: inline-block;
+        vertical-align: top;
+        width: 275px;
+        margin: 0 10px 25px 10px;
+        text-align: center;
+      }
+      .album-item img {
+        width: 190px;
+        height: 190px;
+      }
+
+      /* Unique Album Color Classes */
+      .album-item.stuck-in-this img {
+        border: 3px solid #c43b24;
+        border-radius: 8px;
+        box-sizing: border-box;
+      }
+      .album-item.stuck-in-this .bandcamp-player {
+        border-color: #c43b24;
+      }
+
+      .album-item.where-it-all-fades img {
+        border: 3px solid #69527f;
+        border-radius: 8px;
+        box-sizing: border-box;
+      }
+      .album-item.where-it-all-fades .bandcamp-player {
+        border-color: #69527f;
+      }
+
+      .album-item.breakcore img {
+        border: 3px solid #8a4fd1;
+        border-radius: 8px;
+        box-sizing: border-box;
+      }
+      .album-item.breakcore .bandcamp-player {
+        border-color: #8a4fd1;
+      }
+
+      .album-item.this-is-your-time img {
+        border: 3px solid #71805a;
+        border-radius: 8px;
+        box-sizing: border-box;
+      }
+      .album-item.this-is-your-time .bandcamp-player {
+        border-color: #71805a;
+      }
+
+      .album-title {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        border-top: 1px solid rgba(255, 255, 255, 0.75);
+        border-radius: 8px;
+        padding: 5px 10px;
+        margin-top: 7px;
+        margin-bottom: 10px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 
+                    0 4px 6px rgba(0, 0, 0, 0.2);
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        font-size: 13px;
+        color: #ffffff;
+        text-shadow: 1px 1px 0px #000000, 
+                     -1px -1px 0px #000000, 
+                     1px -1px 0px #000000, 
+                     -1px 1px 0px #000000;
+        letter-spacing: 0.9px;
+      }
+      .bandcamp-player {
+        width: 265px;
+        height: 120px;
+        border: 2px solid rgba(255, 255, 255, 0.7);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+        background: rgba(0, 0, 0, 0.2);
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+      .bandcamp-player iframe {
+        border: 0;
+        width: 100%;
+        height: 120px;
+        transform: none;
+      }
+      /* Artist Profile Box Styles - Updated to match global glassmorphism */
+      .artist-profile-container {
+        max-width: 1250px;
+        margin: 30px auto 35px auto;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-top: 1px solid rgba(255, 255, 255, 0.45);
+        border-radius: 16px;
+        padding: 25px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 
+                    0 8px 32px rgba(0, 0, 0, 0.4);
+      }
+      .artist-header-box {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-top: 1px solid rgba(255, 255, 255, 0.8);
+        border-radius: 8px;
+        padding: 6px 14px;
+        margin-bottom: 15px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 4px 6px rgba(0, 0, 0, 0.2);
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        font-size: 15px;
+        color: #ffffff;
+        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
+        letter-spacing: 1px;
+      }
+      .artist-desc-box {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-top: 1px solid rgba(255, 255, 255, 0.7);
+        border-radius: 8px;
+        padding: 12px 18px;
+        margin-bottom: 25px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 4px 6px rgba(0, 0, 0, 0.2);
+        font-family: Arial, sans-serif;
+        font-size: 15px;
+        color: #ffffff;
+        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
+        letter-spacing: 0.5px;
+      }
+      /* Normal Navigation bar */
+      .top-links {
+        text-align: center;
+        padding: 15px 0;
+        margin-bottom: 10px;
+        font-family: Arial, sans-serif;
+      }
+      .top-links a {
+        color: #ffffff;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        text-decoration: none;
+        margin: 0 5px;
+        background: rgba(255, 255, 255, 0.12);
+        padding: 6px 12px;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      .top-links a:hover {
+        background: rgba(255, 255, 255, 0.25);
+      }
+      /* Footer Links & Modal Styles */
+      .site-footer {
+        text-align: center;
+        margin: 40px 0 20px 0;
+        font-family: Arial, sans-serif;
+      }
+      .site-footer a {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        border-top: 1px solid rgba(255, 255, 255, 0.75);
+        border-radius: 8px;
+        padding: 6px 14px;
+        margin: 0 5px;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        font-size: 14px;
+        color: #ffffff;
+        text-shadow: 1px 1px 0px #000000, 
+                     -1px -1px 0px #000000, 
+                     1px -1px 0px #000000, 
+                     -1px 1px 0px #000000;
+        letter-spacing: 1px;
+        text-decoration: none;
+        cursor: pointer;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 
+                    0 4px 6px rgba(0, 0, 0, 0.2);
+      }
+      .site-footer a:hover {
+        background: rgba(255, 255, 255, 0.25);
+        color: #d8b4fe;
+      }
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+      .modal-content {
+        background: rgba(20, 10, 35, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 2px solid rgba(168, 85, 247, 0.4);
+        border-top: 2px solid rgba(168, 85, 247, 0.7);
+        border-radius: 12px;
+        padding: 25px;
+        width: 320px;
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
+        letter-spacing: 1px;
+      }
+      .modal-content h3 {
+        margin-top: 0;
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
+      }
+      .modal-content p, .modal-content a {
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        color: #ffffff;
+        line-height: 1.5;
+        text-align: center;
+        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
+      }
+      .modal-version-text {
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        color: #ffffff;
+        text-align: center;
+        margin-top: 5px;
+        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
+      }
+      .modal-close {
+        background: rgba(147, 51, 234, 0.6);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(216, 180, 254, 0.5);
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        padding: 6px 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
+      }
+      .modal-close:hover {
+        background: rgba(168, 85, 247, 0.8);
+        border-color: #d8b4fe;
+      }
+      .modal-content ::selection {
+        background: transparent;
+        color: #ffffff;
+      }
+      .modal-content ::-moz-selection {
+        background: transparent;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Normal Navigation Bar -->
+    <nav class="top-links">
+      <a href="index.html">Homepage</a>
+      <a href="Music_And_Album_Art.html">Music & Album Art</a>
+      <a href="error_district.html">Error District</a>
+      <a href="socials.html">Socials</a>
+      <a href="https://kunaki.com/msales.asp?PublisherId=244930&pp=1" target="_blank">Link to all my CDs!</a>
+      <a href="https://kunaki.com/VinylRecord.asp?ProductId=PX0095OVJU" target="_blank">Arf (Deluxe) Vinyl!!</a>
+    </nav>
+
+    <!-- Marquee -->
+    <marquee>
+      <h3>Error District Hub!</h3>   
+    </marquee>
+
+    <!-- Top Error District Description Area -->
+    <div style="text-align: center; margin: 25px auto;">
+      <div class="artist-desc-box" style="font-size: 13px;">ERROR DISTRICT is an independent underground netlabel and music collective run by me and JOSH.WAV, dropping raw electronic experiments, glitchy breaks, and heavy underground noise since 2025 :3</div>
+    </div>
+
+    <!-- Artist Profile Section -->
+    <div style="text-align: center;">
+      <div class="artist-profile-container">
+        <div class="artist-header-box">JOSH.WAV</div><br>
+        <div class="artist-desc-box">co-founder of the label and master of glitchy audio experiments and heavy beats :3</div>
+
+        <!-- Centered Album Covers Container -->
+        <div class="album-grid">
+          
+          <!-- 1. STUCK IN THIS F*****G GAME -->
+          <div class="album-item stuck-in-this">
+            <a href="https://distrokid.com/hyperfollow/joshwav/stuck-in-this-fg-game?ref=release" target="_blank">
+              <img src="images/album covers/error district artists/josh.wav/stuckinthis.png" alt="stuckinthis.png" />
+            </a>
+            <br>
+            <div class="album-title">STUCK IN THIS F*****G GAME</div>
+            <div class="bandcamp-player">
+              <iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=2621599859/size=large/bgcol=181a1b/linkcol=c43b24/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://joshwav.bandcamp.com/album/stuck-in-this-f-g-game">STUCK IN THIS F*****G GAME by JOSH.WAV</a></iframe>
+            </div>
+          </div>
+          
+          <!-- 2. Where It All Fades -->
+          <div class="album-item where-it-all-fades">
+            <a href="https://distrokid.com/hyperfollow/joshwav/where-it-all-fades?ref=release" target="_blank">
+              <img src="images/album covers/error district artists/josh.wav/whenitallfades.jpg" alt="whenitallfades.jpg" />
+            </a>
+            <br>
+            <div class="album-title">Where It All Fades</div>
+            <div class="bandcamp-player">
+              <iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=3175563768/size=large/bgcol=181a1b/linkcol=69527f/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://joshwav.bandcamp.com/album/where-it-all-fades">Where It All Fades by JOSH.WAV</a></iframe>
+            </div>
+          </div>
+          
+          <!-- 3. Br3@kc0r3.WAV -->
+          <div class="album-item breakcore">
+            <a href="https://distrokid.com/hyperfollow/joshwav/br3kc0r3wav?ref=release" target="_blank">
+              <img src="images/album covers/error district artists/josh.wav/breakcore.png" alt="breakcore.png" />
+            </a>
+            <br>
+            <div class="album-title">Br3@kc0r3.WAV</div>
+            <div class="bandcamp-player">
+              <iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=311328211/size=large/bgcol=181a1b/linkcol=8a4fd1/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://joshwav.bandcamp.com/album/br3-kc0r3-wav">Br3@kc0r3.WAV by JOSH.WAV</a></iframe>
+            </div>
+          </div>
+
+          <!-- 4. This Is Your Time -->
+          <div class="album-item this-is-your-time">
+            <a href="https://joshwav.bandcamp.com/album/this-is-your-time" target="_blank">
+              <img src="images/album covers/error district artists/josh.wav/thisisyourtime.jpg" alt="thisisyourtime.jpg" />
+            </a>
+            <br>
+            <div class="album-title">This Is Your Time</div>
+            <div class="bandcamp-player">
+              <iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=4180933486/size=large/bgcol=181a1b/linkcol=71805a/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://joshwav.bandcamp.com/album/this-is-your-time">This Is Your Time by JOSH.WAV</a></iframe>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer with Small Hyperlinks -->
+    <footer class="site-footer">
+      <a onclick="openModal('contactModal')">Contact Info</a> 
+      <a onclick="openModal('versionModal')">Website Version Info</a>
+    </footer>
+
+    <!-- Contact Info Modal -->
+    <div id="contactModal" class="modal-overlay" onclick="outsideClick(event, 'contactModal')">
+      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <h3>Contact Info</h3>
+        <p style="text-align: center; width: 100%;">Email: <a href="mailto:ash.08.514812@gmail.com">ash.08.514812@gmail.com</a></p>
+        <p style="text-align: center; width: 100%;">If you need my phone number, please contact me via email first before requesting it!</p>
+        <button class="modal-close" onclick="closeModal('contactModal')">Close</button>
+      </div>
+    </div>
+
+    <!-- Version Info Modal -->
+    <div id="versionModal" class="modal-overlay" onclick="outsideClick(event, 'versionModal')">
+      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <h3>Website Version</h3>
+        <p class="modal-version-text" style="text-align: center; width: 100%;">Current Version: <strong>Version 2.2</strong></p>
+        <button class="modal-close" onclick="closeModal('versionModal')">Close</button>
+      </div>
+    </div>
+
+    <!-- Simple JavaScript for Modals -->
+    <script>
+      function openModal(modalId) {
+        document.getElementById(modalId).style.display = 'flex';
+      }
+      function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+      }
+      function outsideClick(event, modalId) {
+        if (event.target === document.getElementById(modalId)) {
+          closeModal(modalId);
+        }
+      }
+    </script>
+    
+  </body>
+</html>
