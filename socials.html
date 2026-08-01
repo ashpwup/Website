@@ -232,16 +232,28 @@
         </div>
       </div>
 
-      <!-- Version Info Modal -->
-      <div id="versionModal" class="modal-overlay" onclick="outsideClick(event, 'versionModal')">
-        <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-          <h3>Website Version</h3>
-          <p class="modal-version-text" style="text-align: center; width: 100%;">Current Version: <strong>Version 2.2</strong></p>
-          <button class="modal-close" onclick="closeModal('versionModal')">Close</button>
+    <!-- Version Info Modal -->
+    <div id="versionModal" class="modal-overlay" onclick="outsideClick(event, 'versionModal')">
+      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 420px; max-height: 80vh; overflow-y: auto;">
+        <h3>Website Version</h3>
+        <p class="modal-version-text" style="text-align: center; width: 100%;">Current Version: <strong>Version 2.2.1</strong></p>
+        
+        <div style="text-align: left; width: 100%; margin-top: 15px; font-size: 12px; line-height: 1.4;">
+          <p style="font-weight: bold; font-size: 13px; margin-bottom: 5px; text-align: left;">Version 2.2.1 Patch Notes:</p>
+          <ul style="padding-left: 20px; margin: 0; width: auto;">
+            <li style="background: none; border: none; box-shadow: none; padding: 2px 0; margin: 3px 0; display: list-item;"><strong>Changelog Integration:</strong> Added patch notes directly into the Version Info modal.</li>
+            <li style="background: none; border: none; box-shadow: none; padding: 2px 0; margin: 3px 0; display: list-item;"><strong>Metadata Update:</strong> Updated modal version text across all pages to Version 2.2.1.</li>
+            <li style="background: none; border: none; box-shadow: none; padding: 2px 0; margin: 3px 0; display: list-item;"><strong>New Error District Page:</strong> Added `error_district.html` as a dedicated netlabel hub.</li>
+            <li style="background: none; border: none; box-shadow: none; padding: 2px 0; margin: 3px 0; display: list-item;"><strong>Navigation Bar:</strong> Integrated the Error District link across all site navigation bars.</li>
+            <li style="background: none; border: none; box-shadow: none; padding: 2px 0; margin: 3px 0; display: list-item;"><strong>Netlabel Releases:</strong> Configured JOSH.WAV's releases and Bandcamp embeds.</li>
+            <li style="background: none; border: none; box-shadow: none; padding: 2px 0; margin: 3px 0; display: list-item;"><strong>CSS Refinements:</strong> Polished global glassmorphism and layout styling.</li>
+          </ul>
         </div>
+
+        <button class="modal-close" onclick="closeModal('versionModal')">Close</button>
       </div>
     </div>
-
+      
     <!-- Simple JavaScript for Modals -->
     <script>
       function openModal(modalId) {
