@@ -186,56 +186,59 @@
   </head>
   <body>
 
-    <!-- Normal Navigation Bar -->
-    <nav class="top-links">
-      <a href="index.html">Homepage</a>
-      <a href="Music_And_Album_Art.html">Music & Album Art</a>
-      <a href="socials.html">Socials</a>
-      <a href="https://kunaki.com/msales.asp?PublisherId=244930&pp=1" target="_blank">Link to all my CDs!</a>
-      <a href="https://kunaki.com/VinylRecord.asp?ProductId=PX0095OVJU" target="_blank">Arf (Deluxe) Vinyl!!</a>
-    </nav>
+    <div class="main-wrapper">
+      <!-- Normal Navigation Bar -->
+      <nav class="top-links">
+        <a href="index.html">Homepage</a>
+        <a href="Music_And_Album_Art.html">Music & Album Art</a>
+        <a href="error_district.html">Error District</a>
+        <a href="socials.html">Socials</a>
+        <a href="https://kunaki.com/msales.asp?PublisherId=244930&pp=1" target="_blank">Link to all my CDs!</a>
+        <a href="https://kunaki.com/VinylRecord.asp?ProductId=PX0095OVJU" target="_blank">Arf (Deluxe) Vinyl!!</a>
+      </nav>
 
-    <!-- Marquee -->
-    <marquee>
-      <h3>My Socials & Links!</h3>
-    </marquee>
+      <!-- Marquee -->
+      <marquee>
+        <h3>My Socials & Links!</h3>
+      </marquee>
 
-    <!-- Socials Content Container -->
-    <div class="socials-container">
-      <div class="socials-heading">find me here :3</div>
+      <!-- Socials Content Container -->
+      <div class="socials-container">
+        <div class="socials-heading">find me here :3</div>
 
-      <a href="https://x.com/ashpwup" class="social-link-btn" target="_blank">Twitter / X</a>
-      <a href="https://www.instagram.com/ashpwup/" class="social-link-btn" target="_blank">Instagram</a>
-      <a href="https://www.youtube.com/@ashpwup" class="social-link-btn" target="_blank">YouTube</a>
-      <a href="https://www.twitch.tv/ashpwup" class="social-link-btn" target="_blank">Twitch</a>
-      <a href="https://ashpwup.bandcamp.com/" class="social-link-btn" target="_blank">Bandcamp</a>
-      <a href="https://music.apple.com/us/artist/ashpwup/1896647932" class="social-link-btn" target="_blank">Apple Music</a>
-      <a href="https://open.spotify.com/artist/3yCC27wQrPh0A1icLfTosZ" class="social-link-btn" target="_blank">Spotify</a>
-      <a href="https://discord.com/invite/fed6MAKzak" class="social-link-btn" target="_blank">Discord</a>
-    </div>
-
-    <!-- Footer with Small Hyperlinks -->
-    <footer class="site-footer">
-      <a onclick="openModal('contactModal')">Contact Info</a> 
-      <a onclick="openModal('versionModal')">Website Version Info</a>
-    </footer>
-
-    <!-- Contact Info Modal -->
-    <div id="contactModal" class="modal-overlay" onclick="outsideClick(event, 'contactModal')">
-      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <h3>Contact Info</h3>
-        <p style="text-align: center; width: 100%;">Email: <a href="mailto:ash.08.514812@gmail.com">ash.08.514812@gmail.com</a></p>
-        <p style="text-align: center; width: 100%;">If you need my phone number, please contact me via email first before requesting it!</p>
-        <button class="modal-close" onclick="closeModal('contactModal')">Close</button>
+        <a href="https://x.com/ashpwup" class="social-link-btn" target="_blank">Twitter / X</a>
+        <a href="https://www.instagram.com/ashpwup/" class="social-link-btn" target="_blank">Instagram</a>
+        <a href="https://www.youtube.com/@ashpwup" class="social-link-btn" target="_blank">YouTube</a>
+        <a href="https://www.twitch.tv/ashpwup" class="social-link-btn" target="_blank">Twitch</a>
+        <a href="https://ashpwup.bandcamp.com/" class="social-link-btn" target="_blank">Bandcamp</a>
+        <a href="https://music.apple.com/us/artist/ashpwup/1896647932" class="social-link-btn" target="_blank">Apple Music</a>
+        <a href="https://open.spotify.com/artist/3yCC27wQrPh0A1icLfTosZ" class="social-link-btn" target="_blank">Spotify</a>
+        <a href="https://discord.com/invite/fed6MAKzak" class="social-link-btn" target="_blank">Discord</a>
       </div>
-    </div>
 
-    <!-- Version Info Modal -->
-    <div id="versionModal" class="modal-overlay" onclick="outsideClick(event, 'versionModal')">
-      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <h3>Website Version</h3>
-        <p class="modal-version-text" style="text-align: center; width: 100%;">Current Version: <strong>Version 2.1</strong></p>
-        <button class="modal-close" onclick="closeModal('versionModal')">Close</button>
+      <!-- Footer with Small Hyperlinks -->
+      <footer class="site-footer">
+        <a onclick="openModal('contactModal')">Contact Info</a> 
+        <a onclick="openModal('versionModal')">Website Version Info</a>
+      </footer>
+
+      <!-- Contact Info Modal -->
+      <div id="contactModal" class="modal-overlay" onclick="outsideClick(event, 'contactModal')">
+        <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <h3>Contact Info</h3>
+          <p style="text-align: center; width: 100%;">Email: <a href="mailto:ash.08.514812@gmail.com">ash.08.514812@gmail.com</a></p>
+          <p style="text-align: center; width: 100%;">If you need my phone number, please contact me via email first before requesting it!</p>
+          <button class="modal-close" onclick="closeModal('contactModal')">Close</button>
+        </div>
+      </div>
+
+      <!-- Version Info Modal -->
+      <div id="versionModal" class="modal-overlay" onclick="outsideClick(event, 'versionModal')">
+        <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <h3>Website Version</h3>
+          <p class="modal-version-text" style="text-align: center; width: 100%;">Current Version: <strong>Version 2.2</strong></p>
+          <button class="modal-close" onclick="closeModal('versionModal')">Close</button>
+        </div>
       </div>
     </div>
 
