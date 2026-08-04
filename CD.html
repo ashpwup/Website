@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Music and Physical Media - ashpwup</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      body {
+        background-color: #12081f;
+        color: #ffffff;
+        margin: 0;
+        padding-bottom: 60px;
+        font-family: Arial, sans-serif;
+      }
+      .top-links {
+        text-align: center;
+        padding: 20px 0;
+        margin-bottom: 30px;
+      }
+      .top-links a {
+        color: #ffffff;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        text-decoration: none;
+        margin: 0 8px;
+        background: rgba(255, 255, 255, 0.12);
+        padding: 8px 16px;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      .top-links a:hover {
+        background: rgba(255, 255, 255, 0.25);
+      }
+      h2.section-heading {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        color: #ffffff;
+        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
+        letter-spacing: 1px;
+        font-size: 50px;
+        font-weight: bold;
+        margin: 5px 0;
+      }
+      .store-layout {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+      }
+      .store-row {
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-top: 1px solid rgba(255, 255, 255, 0.45);
+        border-radius: 12px;
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+      .store-row:hover {
+        transform: translateY(-2px);
+      }
+
+      /* Album Specific Border Accent Colors */
+      .store-row.album-arf {
+        border-color: rgba(99, 102, 241, 0.6);
+        border-top-color: rgba(129, 140, 248, 0.9);
+      }
+      .store-row.album-arf:hover {
+        border-color: rgba(129, 140, 248, 0.9);
+      }
+      .store-row.album-arf .store-art {
+        border-right-color: rgba(99, 102, 241, 0.6);
+      }
+
+      .store-row.album-recklessness {
+        border-color: rgba(239, 68, 68, 0.6);
+        border-top-color: rgba(248, 113, 113, 0.9);
+      }
+      .store-row.album-recklessness:hover {
+        border-color: rgba(248, 113, 113, 0.9);
+      }
+      .store-row.album-recklessness .store-art {
+        border-right-color: rgba(239, 68, 68, 0.6);
+      }
+
+      .store-row.album-puppy {
+        border-color: rgba(236, 72, 153, 0.6);
+        border-top-color: rgba(244, 114, 182, 0.9);
+      }
+      .store-row.album-puppy:hover {
+        border-color: rgba(244, 114, 182, 0.9);
+      }
+      .store-row.album-puppy .store-art {
+        border-right-color: rgba(236, 72, 153, 0.6);
+      }
+
+      .store-row.album-teaser {
+        border-color: rgba(168, 85, 247, 0.6);
+        border-top-color: rgba(192, 132, 252, 0.9);
+      }
+      .store-row.album-teaser:hover {
+        border-color: rgba(192, 132, 252, 0.9);
+      }
+      .store-row.album-teaser .store-art {
+        border-right-color: rgba(168, 85, 247, 0.6);
+      }
+
+      .store-art {
+        width: 180px;
+        min-width: 180px;
+        height: 180px;
+        background: rgba(0, 0, 0, 0.2);
+        border-right: 1px solid rgba(255, 255, 255, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .store-art img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .store-details {
+        padding: 20px 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
+        text-align: left;
+      }
+      .store-link {
+        display: inline-block;
+        background: rgba(147, 51, 234, 0.55);
+        border: 1px solid rgba(216, 180, 254, 0.5);
+        border-radius: 7px;
+        padding: 7px 14px;
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        font-size: 13px;
+        text-decoration: none;
+        text-shadow: 1px 1px 0 #000000;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+        width: fit-content;
+      }
+      .store-link:hover {
+        background: rgba(168, 85, 247, 0.8);
+        color: #d8b4fe;
+      }
+      .store-price {
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        color: #d8b4fe;
+        font-weight: bold;
+        margin: 6px 0 10px 0;
+        text-shadow: 1px 1px 0 #000000;
+      }
+      .store-description {
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        color: #ffffff;
+        line-height: 1.4;
+        margin: 4px 0 12px 0;
+        text-shadow: 1px 1px 0 #000000;
+      }
+      .store-teaser {
+        opacity: 0.9;
+      }
+      .store-meta-title {
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        font-size: 16px;
+        color: #ffffff;
+      }
+      .site-footer {
+        text-align: center;
+        margin: 50px 0 20px 0;
+        font-family: Arial, sans-serif;
+      }
+      .site-footer a, .site-footer button {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        border-top: 1px solid rgba(255, 255, 255, 0.75);
+        border-radius: 8px;
+        padding: 8px 16px;
+        margin: 0 6px;
+        font-weight: bold;
+        font-size: 14px;
+        color: #ffffff;
+        text-shadow: 1px 1px 0px #000000;
+        text-decoration: none;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 4px 6px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        font-family: Arial, sans-serif;
+      }
+      .site-footer a:hover, .site-footer button:hover {
+        background: rgba(255, 255, 255, 0.25);
+        color: #d8b4fe;
+      }
+      /* Modal Styles */
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+      .modal-content {
+        background: #1a0f2e;
+        border: 2px solid rgba(216, 180, 254, 0.4);
+        border-radius: 16px;
+        padding: 30px;
+        color: #ffffff;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        max-width: 90%;
+      }
+      .modal-box-header {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 8px;
+        padding: 8px 20px;
+        font-weight: bold;
+        font-size: 16px;
+        color: #ffffff;
+        text-shadow: 1px 1px 0 #000;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      }
+      .modal-box-sub {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-size: 14px;
+        color: #ffffff;
+        text-shadow: 1px 1px 0 #000;
+        margin-bottom: 20px;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      }
+      .modal-changelog-box {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        padding: 15px 20px;
+        text-align: left;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+        max-height: 300px;
+        overflow-y: auto;
+      }
+      .modal-changelog-title {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 6px;
+        padding: 6px 12px;
+        font-size: 13px;
+        font-weight: bold;
+        color: #ffffff;
+        text-shadow: 1px 1px 0 #000;
+        margin-bottom: 12px;
+      }
+      .modal-changelog-box ul {
+        margin: 0;
+        padding-left: 18px;
+        font-size: 13px;
+        line-height: 1.6;
+        color: #ffffff;
+        text-shadow: 1px 1px 0 #000;
+      }
+      .modal-changelog-box li {
+        margin-bottom: 8px;
+      }
+      .modal-changelog-box li strong {
+        color: #ffffff;
+      }
+      .modal-close {
+        background: rgba(147, 51, 234, 0.55);
+        border: 1px solid rgba(216, 180, 254, 0.5);
+        border-radius: 8px;
+        padding: 8px 24px;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 14px;
+        cursor: pointer;
+        text-shadow: 1px 1px 0 #000;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      }
+      .modal-close:hover {
+        background: rgba(168, 85, 247, 0.8);
+        color: #d8b4fe;
+      }
+      .modal-content ::selection {
+        background: transparent;
+        color: #ffffff;
+      }
+      .modal-content ::-moz-selection {
+        background: transparent;
+        color: #ffffff;
+      }
+    </style>
+    <script>
+      function openModal(id) {
+        document.getElementById(id).style.display = 'flex';
+      }
+      function closeModal(id) {
+        document.getElementById(id).style.display = 'none';
+      }
+      function outsideClick(event, id) {
+        if (event.target === document.getElementById(id)) {
+          closeModal(id);
+        }
+      }
+    </script>
+  </head>
+  <body>
+
+   <!-- Normal Navigation Bar -->
+    <nav class="top-links">
+      <a href="index.html">Homepage</a>
+      <a href="ashpwup.html">ashpwup's Music</a>
+      <a href="josh.wav.html">JOSH.WAV'S Music</a>
+      <a href="socials.html">Socials</a>
+      <a href="CD.html">Physical Media</a>
+    </nav>
+
+    <!-- CDs Section -->
+    <div style="height: 30px;"></div>
+    <marquee behavior="scroll" direction="left" scrollamount="4" style="display: block; width: 100%; margin-bottom: 30px;">
+      <div style="display: inline-block; width: 800px; margin: 0 auto;">
+        <h2 class="section-heading">CD Releases</h2>
+      </div>
+    </marquee>
+    
+    <div class="store-layout">
+
+      <!-- Arf! (Deluxe) -->
+      <div class="store-row album-arf">
+        <div class="store-art">
+          <img src="images/album covers/cover1.jpg" alt="Arf! (Deluxe) physical CD">
+        </div>
+        <div class="store-details">
+          <div>
+            <div class="store-meta-title">Arf! (Deluxe)</div>
+            <div class="store-price">Released: April 9, 2026 &bull; $10.00 CD</div>
+            <div class="store-description">
+              the deluxe edition expanding on the original arf tracks. packed with extra fuzz, loud bass, and heavy distortion.
+            </div>
+          </div>
+          <a class="store-link"
+             href="https://kunaki.com/sales.asp?PID=PX008UX586&pp=1"
+             target="_blank" rel="noopener noreferrer">Buy CD</a>
+        </div>
+      </div>
+
+      <!-- RECKLESSNESS -->
+      <div class="store-row album-recklessness">
+        <div class="store-art">
+          <img src="images/album covers/cover2.jpg" alt="RECKLESSNESS physical CD">
+        </div>
+        <div class="store-details">
+          <div>
+            <div class="store-meta-title">RECKLESSNESS</div>
+            <div class="store-price">Released: April 23, 2026 &bull; $12.00 CD</div>
+            <div class="store-description">
+              just pure unhinged chaos and noisy melodies. grabbed a bunch of erratic ideas and threw them all into one loud ride.
+            </div>
+          </div>
+          <a class="store-link"
+             href="https://kunaki.com/sales.asp?PID=PX00Z1YNCA&pp=1"
+             target="_blank" rel="noopener noreferrer">Buy CD</a>
+        </div>
+      </div>
+
+      <!-- PuppySoundSystem Vol. 1 -->
+      <div class="store-row album-puppy">
+        <div class="store-art">
+          <img src="images/album covers/cover3.jpg" alt="PuppySoundSystem Vol. 1 physical CD">
+        </div>
+        <div class="store-details">
+          <div>
+            <div class="store-meta-title">PuppySoundSystem Vol. 1</div>
+            <div class="store-price">Released: June 5, 2026 &bull; $15.00 CD</div>
+            <div class="store-description">
+              started the puppy sound system project to push some heavier electronic stuff. glitchy, loud, and super fun to make.
+            </div>
+          </div>
+          <a class="store-link"
+             href="https://kunaki.com/sales.asp?PID=PX00ZJ613P&pp=1"
+             target="_blank" rel="noopener noreferrer">Buy CD</a>
+        </div>
+      </div>
+
+      <!-- Upcoming album teaser -->
+      <div class="store-row store-teaser album-teaser">
+        <div class="store-art">
+          <img src="images/album covers/cover4(teaser).jpg" alt="Teaser for upcoming ashpwup album">
+        </div>
+        <div class="store-details">
+          <div>
+            <div class="store-meta-title">Next Album &mdash; TEASER</div>
+            <div class="store-price">Releasing August 15, 2026</div>
+            <div class="store-description">
+              cooking up some brand new stuff right now. pushing the distortion and melodies even further. cds and pre-orders will drop the second it's ready, stay tuned!!
+            </div>
+          </div>
+          <div class="store-link" style="cursor: default; opacity: 0.7;">
+            Product page coming soon
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Vinyl Section -->
+    <div style="height: 30px;"></div>
+    <marquee behavior="scroll" direction="left" scrollamount="4" style="display: block; width: 100%; margin-bottom: 30px;">
+      <div style="display: inline-block; width: 800px; margin: 0 auto;">
+        <h2 class="section-heading">Vinyl Releases</h2>
+      </div>
+    </marquee>
+
+    <div class="store-layout">
+
+      <!-- Arf! (Deluxe) Vinyl -->
+      <div class="store-row album-arf">
+        <div class="store-art">
+          <img src="images/album covers/cover1.jpg" alt="Arf! (Deluxe) vinyl record">
+        </div>
+        <div class="store-details">
+          <div>
+            <div class="store-meta-title">Arf! (Deluxe) Vinyl</div>
+            <div class="store-price">Released: April 9, 2026 &bull; Vinyl Edition</div>
+            <div class="store-description">
+              wanted to get arf on actual wax. spinning this physically hits completely different, highly recommend if you love heavy physical media.
+            </div>
+          </div>
+          <a class="store-link"
+             href="https://kunaki.com/VinylRecord.asp?ProductId=PX0095OVJU"
+             target="_blank" rel="noopener noreferrer">Buy Vinyl</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <a href="https://kunaki.com/msales.asp?PublisherId=244930&pp=1" target="_blank">View All CDs Storefront</a>
+      <button onclick="openModal('contactModal')">Contact Info</button>
+      <button onclick="openModal('versionModal')">Website Version</button>
+    </footer>
+
+    <!-- Contact Info Modal -->
+    <div id="contactModal" class="modal-overlay" onclick="outsideClick(event, 'contactModal')">
+      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 420px;">
+        <div class="modal-box-header">Contact Info</div>
+        <div class="modal-box-sub">Email: <a href="mailto:ash.08.514812@gmail.com" style="color: #d8b4fe; text-decoration: underline;">ash.08.514812@gmail.com</a></div>
+        <div class="modal-box-sub" style="font-size: 13px; line-height: 1.4;">If you need my phone number, please contact me via email first before requesting it!</div>
+        <button class="modal-close" onclick="closeModal('contactModal')">Close</button>
+      </div>
+    </div>
+
+    <!-- Version Info Modal -->
+    <div id="versionModal" class="modal-overlay" onclick="outsideClick(event, 'versionModal')">
+      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 480px; max-height: 85vh;">
+        <div class="modal-box-header">Website Version</div>
+        <div class="modal-box-sub">Current Version: <strong>Version 2.3.0</strong></div>
+        
+        <div class="modal-changelog-box">
+          <div class="modal-changelog-title">Version 2.3.0 Patch Notes:</div>
+          <ul>
+            <li><strong>Spacing Adjustments:</strong> Increased spacing and padding across layout elements and sections.</li>
+            <li><strong>Scrolling Text Enhancement:</strong> Made section header marquee elements slightly larger and more prominent.</li>
+            <li><strong>Footer Refinement:</strong> Removed legacy navigation links from the footer and integrated interactive modal triggers for Contact Info and Website Version.</li>
+            <li><strong>Layout Cleanup:</strong> Removed the memes section and related image elements from the music and album art page.</li>
+            <li><strong>Navigation Update:</strong> Added the physical media page (cd.html) link integration.</li>
+            <li><strong>Text Consistency:</strong> Applied more unified text styling across all elements to ensure everything is more consistent.</li>
+            <li><strong>Navigation Renaming:</strong> Updated navigation labels to "ashpwup" and "JOSH.WAV'S Music".</li>
+            <li><strong>Artist Bios:</strong> Added and updated artist descriptions for both ashpwup and JOSH.WAV.</li>
+            <li><strong>Page Renaming:</strong> Renamed error_district.html to josh.wav.html.</li>
+          </ul>
+        </div>
+
+        <button class="modal-close" onclick="closeModal('versionModal')">Close</button>
+      </div>
+    </div>
+
+  </body>
+</html>
