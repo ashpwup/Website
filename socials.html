@@ -2,21 +2,38 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Socials - ashpwup</title>
+    <title>ashpwup's Socials</title>
     <!-- CSS links belong in the head section -->
     <link rel="stylesheet" href="style.css">
     <style>
-      body {
-        background-color: #12081f;
-        color: #ffffff;
+      html, body {
+        height: 100%;
         margin: 0;
-        padding-bottom: 40px;
+        padding: 0;
+      }
+      body {
+        background-image: url('images/background.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .main-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
       .socials-container {
         max-width: 600px;
-        margin: 40px auto;
+        margin: 20px auto;
         padding: 0 20px;
         text-align: center;
+        width: 100%;
+        box-sizing: border-box;
       }
       .socials-heading {
         font-family: Arial, sans-serif;
@@ -25,7 +42,7 @@
         color: #ffffff;
         text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
         letter-spacing: 1px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
       }
       .social-link-btn {
         display: block;
@@ -35,12 +52,14 @@
         border: 1px solid rgba(255, 255, 255, 0.45);
         border-top: 1px solid rgba(255, 255, 255, 0.75);
         border-radius: 12px;
-        padding: 14px 20px;
-        margin: 15px auto;
-        max-width: 400px;
+        padding: 12px 18px;
+        margin: 12px auto;
+        max-width: 380px;
+        width: 100%;
+        box-sizing: border-box;
         font-family: Arial, sans-serif;
         font-weight: bold;
-        font-size: 16px;
+        font-size: 15px;
         color: #ffffff;
         text-shadow: 1px 1px 0px #000000, 
                      -1px -1px 0px #000000, 
@@ -57,11 +76,11 @@
         color: #d8b4fe;
         transform: translateY(-2px);
       }
-      /* Normal Navigation bar */
+      /* Normal Navigation bar - updated to match updated top-links glass and spacing style */
       .top-links {
         text-align: center;
-        padding: 15px 0;
-        margin-bottom: 10px;
+        padding: 20px 0;
+        margin-bottom: 30px;
         font-family: Arial, sans-serif;
       }
       .top-links a {
@@ -69,19 +88,20 @@
         font-weight: bold;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
         text-decoration: none;
-        margin: 0 5px;
+        margin: 0 8px;
         background: rgba(255, 255, 255, 0.12);
-        padding: 6px 12px;
+        padding: 8px 16px;
         border-radius: 6px;
         border: 1px solid rgba(255, 255, 255, 0.3);
       }
       .top-links a:hover {
         background: rgba(255, 255, 255, 0.25);
+        color: #d8b4fe;
       }
       /* Footer Links & Modal Styles */
       .site-footer {
         text-align: center;
-        margin: 40px 0 20px 0;
+        margin: 20px 0 30px 0;
         font-family: Arial, sans-serif;
       }
       .site-footer a {
@@ -112,6 +132,7 @@
         background: rgba(255, 255, 255, 0.25);
         color: #d8b4fe;
       }
+      /* Modal Styles */
       .modal-overlay {
         display: none;
         position: fixed;
@@ -120,67 +141,105 @@
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(4px);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
         justify-content: center;
         align-items: center;
         z-index: 1000;
       }
       .modal-content {
-        background: rgba(20, 10, 35, 0.85);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 2px solid rgba(168, 85, 247, 0.4);
-        border-top: 2px solid rgba(168, 85, 247, 0.7);
-        border-radius: 12px;
-        padding: 25px;
-        width: 320px;
+        background: #1a0f2e;
+        border: 2px solid rgba(216, 180, 254, 0.4);
+        border-radius: 16px;
+        padding: 30px;
         color: #ffffff;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        max-width: 90%;
         font-family: Arial, sans-serif;
-        text-align: center;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
-        letter-spacing: 1px;
       }
-      .modal-content h3 {
-        margin-top: 0;
+      .modal-box-header {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 8px;
+        padding: 8px 20px;
+        font-weight: bold;
+        font-size: 16px;
         color: #ffffff;
-        font-family: Arial, sans-serif;
-        font-size: 20px;
-        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
+        text-shadow: 1px 1px 0 #000;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       }
-      .modal-content p, .modal-content a {
+      .modal-box-sub {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 8px;
+        padding: 10px 20px;
         font-size: 14px;
-        font-family: Arial, sans-serif;
         color: #ffffff;
-        line-height: 1.5;
+        text-shadow: 1px 1px 0 #000;
+        margin-bottom: 20px;
+        width: 100%;
+        box-sizing: border-box;
         text-align: center;
-        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       }
-      .modal-version-text {
-        font-size: 14px;
-        font-family: Arial, sans-serif;
+      .modal-changelog-box {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        padding: 15px 20px;
+        text-align: left;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+        max-height: 300px;
+        overflow-y: auto;
+      }
+      .modal-changelog-title {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 6px;
+        padding: 6px 12px;
+        font-size: 13px;
+        font-weight: bold;
         color: #ffffff;
-        text-align: center;
-        margin-top: 5px;
-        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
+        text-shadow: 1px 1px 0 #000;
+        margin-bottom: 12px;
+      }
+      .modal-changelog-box ul {
+        margin: 0;
+        padding-left: 18px;
+        font-size: 13px;
+        line-height: 1.6;
+        color: #ffffff;
+        text-shadow: 1px 1px 0 #000;
+      }
+      .modal-changelog-box li {
+        margin-bottom: 8px;
+      }
+      .modal-changelog-box li strong {
+        color: #ffffff;
       }
       .modal-close {
-        background: rgba(147, 51, 234, 0.6);
-        backdrop-filter: blur(4px);
+        background: rgba(147, 51, 234, 0.55);
         border: 1px solid rgba(216, 180, 254, 0.5);
+        border-radius: 8px;
+        padding: 8px 24px;
         color: #ffffff;
-        font-family: Arial, sans-serif;
         font-weight: bold;
-        padding: 6px 16px;
-        border-radius: 6px;
+        font-size: 14px;
         cursor: pointer;
-        margin-top: 15px;
+        text-shadow: 1px 1px 0 #000;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
       }
       .modal-close:hover {
         background: rgba(168, 85, 247, 0.8);
-        border-color: #d8b4fe;
+        color: #d8b4fe;
       }
       .modal-content ::selection {
         background: transparent;
@@ -195,19 +254,18 @@
   <body>
 
     <div class="main-wrapper">
-      <!-- Normal Navigation Bar -->
-      <nav class="top-links">
-        <a href="index.html">Homepage</a>
-        <a href="Music_And_Album_Art.html">Music & Album Art</a>
-        <a href="error_district.html">Error District</a>
-        <a href="socials.html">Socials</a>
-        <a href="https://kunaki.com/msales.asp?PublisherId=244930&pp=1" target="_blank">Link to all my CDs!</a>
-        <a href="https://kunaki.com/VinylRecord.asp?ProductId=PX0095OVJU" target="_blank">Arf (Deluxe) Vinyl!!</a>
-      </nav>
+   <!-- Normal Navigation Bar -->
+    <nav class="top-links">
+      <a href="index.html">Homepage</a>
+      <a href="ashpwup.html">ashpwup's Music</a>
+      <a href="josh.wav.html">JOSH.WAV'S Music</a>
+      <a href="socials.html">Socials</a>
+      <a href="CD.html">Physical Media</a>
+    </nav>
 
       <!-- Marquee -->
       <marquee>
-        <h3>My Socials & Links!</h3>
+        <h3 style="font-size: 50px; font-weight: bold; margin: 5px 0; text-shadow: 2px 2px 0px #000000; letter-spacing: 1px;">My Socials & Links!</h3>
       </marquee>
 
       <!-- Socials Content Container -->
@@ -223,48 +281,49 @@
         <a href="https://open.spotify.com/artist/3yCC27wQrPh0A1icLfTosZ" class="social-link-btn" target="_blank">Spotify</a>
         <a href="https://discord.com/invite/fed6MAKzak" class="social-link-btn" target="_blank">Discord</a>
       </div>
-
-      <!-- Footer with Small Hyperlinks -->
-      <footer class="site-footer">
-        <a onclick="openModal('contactModal')">Contact Info</a> 
-        <a onclick="openModal('versionModal')">Website Version Info</a>
-      </footer>
-
-      <!-- Contact Info Modal -->
-      <div id="contactModal" class="modal-overlay" onclick="outsideClick(event, 'contactModal')">
-        <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-          <h3>Contact Info</h3>
-          <p style="text-align: center; width: 100%;">Email: <a href="mailto:ash.08.514812@gmail.com">ash.08.514812@gmail.com</a></p>
-          <p style="text-align: center; width: 100%;">If you need my phone number, please contact me via email first before requesting it!</p>
-          <button class="modal-close" onclick="closeModal('contactModal')">Close</button>
-        </div>
-      </div>
-
-      <!-- Version Info Modal -->
-      <div id="versionModal" class="modal-overlay" onclick="outsideClick(event, 'versionModal')">
-        <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 420px; max-height: 80vh; overflow-y: auto;">
-          <h3>Website Version</h3>
-          <p class="modal-version-text" style="text-align: center; width: 100%;">Current Version: <strong>Version 2.2.2</strong></p>
-          
-          <div style="text-align: left; width: 100%; margin-top: 15px; font-size: 12px; line-height: 1.4;">
-            <p style="font-weight: bold; font-size: 13px; margin-bottom: 5px; text-align: left;">Version 2.2.2 Patch Notes:</p>
-            <ul style="padding-left: 20px; margin: 0; width: auto;">
-              <li style="background: none; border: none; box-shadow: none; padding: 2px 0; margin: 3px 0; display: list-item;"><strong>Link Fixes:</strong> Fixed DistroKid links for "Where It All Fades" and "This Is Your Time" to use their correct respective URLs.</li>
-              <li style="background: none; border: none; box-shadow: none; padding: 2px 0; margin: 3px 0; display: list-item;"><strong>Changelog Integration:</strong> Added patch notes directly into the Version Info modal.</li>
-              <li style="background: none; border: none; box-shadow: none; padding: 2px 0; margin: 3px 0; display: list-item;"><strong>Metadata Update:</strong> Updated modal version text across all pages to Version 2.2.2.</li>
-              <li style="background: none; border: none; box-shadow: none; padding: 2px 0; margin: 3px 0; display: list-item;"><strong>New Error District Page:</strong> Added `error_district.html` as a dedicated netlabel hub.</li>
-              <li style="background: none; border: none; box-shadow: none; padding: 2px 0; margin: 3px 0; display: list-item;"><strong>Navigation Bar:</strong> Integrated the Error District link across all site navigation bars.</li>
-              <li style="background: none; border: none; box-shadow: none; padding: 2px 0; margin: 3px 0; display: list-item;"><strong>Netlabel Releases:</strong> Configured JOSH.WAV's releases and Bandcamp embeds.</li>
-              <li style="background: none; border: none; box-shadow: none; padding: 2px 0; margin: 3px 0; display: list-item;"><strong>CSS Refinements:</strong> Polished global glassmorphism and layout styling.</li>
-            </ul>
-          </div>
-
-          <button class="modal-close" onclick="closeModal('versionModal')">Close</button>
-        </div>
-      </div>
-      
     </div>
 
+    <!-- Footer with Small Hyperlinks -->
+    <footer class="site-footer">
+      <a onclick="openModal('contactModal')">Contact Info</a> 
+      <a onclick="openModal('versionModal')">Website Version Info</a>
+    </footer>
+
+    <!-- Contact Info Modal -->
+    <div id="contactModal" class="modal-overlay" onclick="outsideClick(event, 'contactModal')">
+      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 420px;">
+        <div class="modal-box-header">Contact Info</div>
+        <div class="modal-box-sub">Email: <a href="mailto:ash.08.514812@gmail.com" style="color: #d8b4fe; text-decoration: underline;">ash.08.514812@gmail.com</a></div>
+        <div class="modal-box-sub" style="font-size: 13px; line-height: 1.4;">If you need my phone number, please contact me via email first before requesting it!</div>
+        <button class="modal-close" onclick="closeModal('contactModal')">Close</button>
+      </div>
+    </div>
+
+<!-- Version Info Modal -->
+    <div id="versionModal" class="modal-overlay" onclick="outsideClick(event, 'versionModal')">
+      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 480px; max-height: 85vh;">
+        <div class="modal-box-header">Website Version</div>
+        <div class="modal-box-sub">Current Version: <strong>Version 2.3.0</strong></div>
+        
+        <div class="modal-changelog-box">
+          <div class="modal-changelog-title">Version 2.3.0 Patch Notes:</div>
+          <ul>
+            <li><strong>Spacing Adjustments:</strong> Increased spacing and padding across layout elements and sections.</li>
+            <li><strong>Scrolling Text Enhancement:</strong> Made section header marquee elements slightly larger and more prominent.</li>
+            <li><strong>Footer Refinement:</strong> Removed legacy navigation links from the footer and integrated interactive modal triggers for Contact Info and Website Version.</li>
+            <li><strong>Layout Cleanup:</strong> Removed the memes section and related image elements from the music and album art page.</li>
+            <li><strong>Navigation Update:</strong> Added the physical media page (cd.html) link integration.</li>
+            <li><strong>Text Consistency:</strong> Applied more unified text styling across all elements to ensure everything is more consistent.</li>
+            <li><strong>Navigation Renaming:</strong> Updated navigation labels to "ashpwup's Music" and "JOSH.WAV'S Music".</li>
+            <li><strong>Artist Bios:</strong> Added and updated artist descriptions for both ashpwup and JOSH.WAV.</li>
+            <li><strong>Page Removal:</strong> Removed the Error District page from the site.</li>
+          </ul>
+        </div>
+
+        <button class="modal-close" onclick="closeModal('versionModal')">Close</button>
+      </div>
+    </div>
+    
     <!-- Simple JavaScript for Modals -->
     <script>
       function openModal(modalId) {
