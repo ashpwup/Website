@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Music & Album Art - ashpwup</title>
+    <title>ashpwup's Music</title>
     <!-- CSS links belong in the head section -->
     <link rel="stylesheet" href="style.css">
     <style>
@@ -195,11 +195,12 @@
         background: rgba(255, 255, 255, 0.25);
         color: #d8b4fe;
       }
-      /* Normal Navigation bar */
+      
+      /* Normal Navigation bar - updated to match updated top-links glass and spacing style */
       .top-links {
         text-align: center;
-        padding: 15px 0;
-        margin-bottom: 10px;
+        padding: 20px 0;
+        margin-bottom: 30px;
         font-family: Arial, sans-serif;
       }
       .top-links a {
@@ -207,15 +208,17 @@
         font-weight: bold;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
         text-decoration: none;
-        margin: 0 5px;
+        margin: 0 8px;
         background: rgba(255, 255, 255, 0.12);
-        padding: 6px 12px;
+        padding: 8px 16px;
         border-radius: 6px;
         border: 1px solid rgba(255, 255, 255, 0.3);
       }
       .top-links a:hover {
         background: rgba(255, 255, 255, 0.25);
+        color: #d8b4fe;
       }
+      
       /* Section Headings Style */
       h2.section-heading {
         text-align: center;
@@ -288,28 +291,73 @@
         text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
         letter-spacing: 1px;
       }
-      .modal-content h3 {
-        margin-top: 0;
+      .modal-box-header {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 8px;
+        padding: 8px 20px;
+        font-weight: bold;
+        font-size: 16px;
         color: #ffffff;
-        font-family: Arial, sans-serif;
-        font-size: 20px;
-        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
+        text-shadow: 1px 1px 0 #000;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       }
-      .modal-content p, .modal-content a {
+      .modal-box-sub {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 8px;
+        padding: 10px 20px;
         font-size: 14px;
-        font-family: Arial, sans-serif;
         color: #ffffff;
-        line-height: 1.5;
+        text-shadow: 1px 1px 0 #000;
+        margin-bottom: 20px;
+        width: 100%;
+        box-sizing: border-box;
         text-align: center;
-        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       }
-      .modal-version-text {
-        font-size: 14px;
-        font-family: Arial, sans-serif;
+      .modal-changelog-box {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        padding: 15px 20px;
+        text-align: left;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+        max-height: 300px;
+        overflow-y: auto;
+      }
+      .modal-changelog-title {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 6px;
+        padding: 6px 12px;
+        font-size: 13px;
+        font-weight: bold;
         color: #ffffff;
-        text-align: center;
-        margin-top: 5px;
-        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
+        text-shadow: 1px 1px 0 #000;
+        margin-bottom: 12px;
+      }
+      .modal-changelog-box ul {
+        margin: 0;
+        padding-left: 18px;
+        font-size: 13px;
+        line-height: 1.6;
+        color: #ffffff;
+        text-shadow: 1px 1px 0 #000;
+      }
+      .modal-changelog-box li {
+        margin-bottom: 8px;
+      }
+      .modal-changelog-box li strong {
+        color: #ffffff;
       }
       .modal-close {
         background: rgba(147, 51, 234, 0.6);
@@ -341,26 +389,25 @@
   </head>
   <body>
 
-    <!-- Normal Navigation Bar -->
+   <!-- Normal Navigation Bar -->
     <nav class="top-links">
       <a href="index.html">Homepage</a>
-      <a href="Music_And_Album_Art.html">Music & Album Art</a>
-      <a href="error_district.html">Error District</a>
+      <a href="ashpwup.html">ashpwup's Music</a>
+      <a href="josh.wav.html">JOSH.WAV'S Music</a>
       <a href="socials.html">Socials</a>
-      <a href="https://kunaki.com/msales.asp?PublisherId=244930&pp=1" target="_blank">Link to all my CDs!</a>
-      <a href="https://kunaki.com/VinylRecord.asp?ProductId=PX0095OVJU" target="_blank">Arf (Deluxe) Vinyl!!</a>
+      <a href="CD.html">Physical Media</a>
     </nav>
 
     <!-- Album Art Marquee -->
     <marquee>
-      <h3>Album Art & Music Hub!</h3>   
+      <h3 style="font-size: 50px; font-weight: bold; margin: 5px 0; text-shadow: 2px 2px 0px #000000; letter-spacing: 1px;">Album Art & Music Hub!</h3>   
     </marquee>
 
     <!-- Artist Profile Section -->
     <div style="text-align: center;">
       <div class="artist-profile-container">
         <div class="artist-header-box">ashpwup</div><br>
-        <div class="artist-desc-box">making noise until it sounds cool :3</div>
+        <div class="artist-desc-box">who am I?? well!!! I am ashpwup :3c I am an independent music producer, digital and physical media publisher, and VRChat texture creator I hope you will enjoy my music and this website!!</div>
 
         <!-- Centered Album Covers Container -->
         <div class="album-grid">
@@ -416,17 +463,6 @@
       </div>
     </div>
 
-    <!-- Memes Marquee -->
-    <marquee>
-      <h4>Memes</h4>
-    </marquee>
-
-    <!-- Centered Meme Images at the bottom -->
-    <div style="text-align: center;">
-      <img src="images/Image2.jpg" alt="nova meme image" width="1000" height="600" /><br><br>
-      <img src="images/Image1.png" alt="mayu image" width="1000" height="600"/>
-    </div>
-
     <!-- Footer with Small Hyperlinks -->
     <footer class="site-footer">
       <a onclick="openModal('contactModal')">Contact Info</a> 
@@ -435,30 +471,32 @@
 
     <!-- Contact Info Modal -->
     <div id="contactModal" class="modal-overlay" onclick="outsideClick(event, 'contactModal')">
-      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <h3>Contact Info</h3>
-        <p style="text-align: center; width: 100%;">Email: <a href="mailto:ash.08.514812@gmail.com">ash.08.514812@gmail.com</a></p>
-        <p style="text-align: center; width: 100%;">If you need my phone number, please contact me via email first before requesting it!</p>
+      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 420px;">
+        <div class="modal-box-header">Contact Info</div>
+        <div class="modal-box-sub">Email: <a href="mailto:ash.08.514812@gmail.com" style="color: #d8b4fe; text-decoration: underline;">ash.08.514812@gmail.com</a></div>
+        <div class="modal-box-sub" style="font-size: 13px; line-height: 1.4;">If you need my phone number, please contact me via email first before requesting it!</div>
         <button class="modal-close" onclick="closeModal('contactModal')">Close</button>
       </div>
     </div>
 
-    <!-- Version Info Modal -->
+ <!-- Version Info Modal -->
     <div id="versionModal" class="modal-overlay" onclick="outsideClick(event, 'versionModal')">
-      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 420px; max-height: 80vh; overflow-y: auto;">
-        <h3>Website Version</h3>
-        <p class="modal-version-text" style="text-align: center; width: 100%;">Current Version: <strong>Version 2.2.2</strong></p>
+      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 480px; max-height: 85vh;">
+        <div class="modal-box-header">Website Version</div>
+        <div class="modal-box-sub">Current Version: <strong>Version 2.3.0</strong></div>
         
-        <div style="text-align: left; width: 100%; margin-top: 15px; font-size: 12px; line-height: 1.4;">
-          <p style="font-weight: bold; font-size: 13px; margin-bottom: 5px; text-align: left;">Version 2.2.2 Patch Notes:</p>
-          <ul style="padding-left: 20px; margin: 0; width: auto;">
-            <li style="background: none; border: none; box-shadow: none; padding: 2px 0; margin: 3px 0; display: list-item;"><strong>Link Fixes:</strong> Fixed DistroKid links for "Where It All Fades" and "This Is Your Time" to use their correct respective URLs.</li>
-            <li style="background: none; border: none; box-shadow: none; padding: 2px 0; margin: 3px 0; display: list-item;"><strong>Changelog Integration:</strong> Added patch notes directly into the Version Info modal.</li>
-            <li style="background: none; border: none; box-shadow: none; padding: 2px 0; margin: 3px 0; display: list-item;"><strong>Metadata Update:</strong> Updated modal version text across all pages to Version 2.2.2.</li>
-            <li style="background: none; border: none; box-shadow: none; padding: 2px 0; margin: 3px 0; display: list-item;"><strong>New Error District Page:</strong> Added `error_district.html` as a dedicated netlabel hub.</li>
-            <li style="background: none; border: none; box-shadow: none; padding: 2px 0; margin: 3px 0; display: list-item;"><strong>Navigation Bar:</strong> Integrated the Error District link across all site navigation bars.</li>
-            <li style="background: none; border: none; box-shadow: none; padding: 2px 0; margin: 3px 0; display: list-item;"><strong>Netlabel Releases:</strong> Configured JOSH.WAV's releases and Bandcamp embeds.</li>
-            <li style="background: none; border: none; box-shadow: none; padding: 2px 0; margin: 3px 0; display: list-item;"><strong>CSS Refinements:</strong> Polished global glassmorphism and layout styling.</li>
+        <div class="modal-changelog-box">
+          <div class="modal-changelog-title">Version 2.3.0 Patch Notes:</div>
+          <ul>
+            <li><strong>Spacing Adjustments:</strong> Increased spacing and padding across layout elements and sections.</li>
+            <li><strong>Scrolling Text Enhancement:</strong> Made section header marquee elements slightly larger and more prominent.</li>
+            <li><strong>Footer Refinement:</strong> Removed legacy navigation links from the footer and integrated interactive modal triggers for Contact Info and Website Version.</li>
+            <li><strong>Layout Cleanup:</strong> Removed the memes section and related image elements from the music and album art page.</li>
+            <li><strong>Navigation Update:</strong> Added the physical media page (cd.html) link integration.</li>
+            <li><strong>Text Consistency:</strong> Applied more unified text styling across all elements to ensure everything is more consistent.</li>
+            <li><strong>Navigation Renaming:</strong> Updated navigation labels to "ashpwup's Music" and "JOSH.WAV'S Music".</li>
+            <li><strong>Artist Bios:</strong> Added and updated artist descriptions for both ashpwup and JOSH.WAV.</li>
+            <li><strong>Page Removal:</strong> Removed the Error District page from the site.</li>
           </ul>
         </div>
 
