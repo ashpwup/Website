@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8">
     <title>ashpwup's Socials</title>
-    <!-- CSS links belong in the head section -->
     <link rel="stylesheet" href="style.css">
     <style>
       html, body {
@@ -76,7 +75,6 @@
         color: #d8b4fe;
         transform: translateY(-2px);
       }
-      /* Normal Navigation bar - updated to match updated top-links glass and spacing style */
       .top-links {
         text-align: center;
         padding: 20px 0;
@@ -98,7 +96,6 @@
         background: rgba(255, 255, 255, 0.25);
         color: #d8b4fe;
       }
-      /* Footer Links & Modal Styles */
       .site-footer {
         text-align: center;
         margin: 20px 0 30px 0;
@@ -132,7 +129,6 @@
         background: rgba(255, 255, 255, 0.25);
         color: #d8b4fe;
       }
-      /* Modal Styles */
       .modal-overlay {
         display: none;
         position: fixed;
@@ -219,12 +215,6 @@
         color: #ffffff;
         text-shadow: 1px 1px 0 #000;
       }
-      .modal-changelog-box li {
-        margin-bottom: 8px;
-      }
-      .modal-changelog-box li strong {
-        color: #ffffff;
-      }
       .modal-close {
         background: rgba(147, 51, 234, 0.55);
         border: 1px solid rgba(216, 180, 254, 0.5);
@@ -241,37 +231,25 @@
         background: rgba(168, 85, 247, 0.8);
         color: #d8b4fe;
       }
-      .modal-content ::selection {
-        background: transparent;
-        color: #ffffff;
-      }
-      .modal-content ::-moz-selection {
-        background: transparent;
-        color: #ffffff;
-      }
     </style>
   </head>
   <body>
 
     <div class="main-wrapper">
-   <!-- Normal Navigation Bar -->
-    <nav class="top-links">
-      <a href="index.html">Homepage</a>
-      <a href="ashpwup.html">ashpwup's Music</a>
-      <a href="josh.wav.html">JOSH.WAV'S Music</a>
-      <a href="socials.html">Socials</a>
-      <a href="CD.html">Physical Media</a>
-    </nav>
+      <nav class="top-links">
+        <a href="index.html">Homepage</a>
+        <a href="ashpwup.html">ashpwup's Music</a>
+        <a href="josh.wav.html">JOSH.WAV'S Music</a>
+        <a href="socials.html">Socials</a>
+        <a href="CD.html">Physical Media</a>
+      </nav>
 
-      <!-- Marquee -->
       <marquee>
         <h3 style="font-size: 50px; font-weight: bold; margin: 5px 0; text-shadow: 2px 2px 0px #000000; letter-spacing: 1px;">My Socials & Links!</h3>
       </marquee>
 
-      <!-- Socials Content Container -->
       <div class="socials-container">
         <div class="socials-heading">find me here :3</div>
-
         <a href="https://x.com/ashpwup" class="social-link-btn" target="_blank">Twitter / X</a>
         <a href="https://www.instagram.com/ashpwup/" class="social-link-btn" target="_blank">Instagram</a>
         <a href="https://www.youtube.com/@ashpwup" class="social-link-btn" target="_blank">YouTube</a>
@@ -283,7 +261,6 @@
       </div>
     </div>
 
-    <!-- Footer with Small Hyperlinks -->
     <footer class="site-footer">
       <a onclick="openModal('contactModal')">Contact Info</a> 
       <a onclick="openModal('versionModal')">Website Version Info</a>
@@ -299,24 +276,23 @@
       </div>
     </div>
 
-
     <!-- Version Info Modal -->
     <div id="versionModal" class="modal-overlay" onclick="outsideClick(event, 'versionModal')">
       <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 480px; max-height: 85vh;">
         <div class="modal-box-header">Website Version</div>
         <div class="modal-box-sub">Current Version: <strong>Version 2.3.1</strong></div>
         
-<div class="modal-changelog-title">Version 2.3.1 Patch Notes:</div>
-<ul>
-  <li><strong>CD.html Update:</strong> Added an update to cd.html for the latest physical media releases.</li>
+        <div class="modal-changelog-box">
+          <div class="modal-changelog-title">Version 2.3.1 Patch Notes:</div>
+          <ul>
+            <li><strong>CD.html Update:</strong> Added an update to cd.html for the latest physical media releases.</li>
           </ul>
         </div>
-
+        
         <button class="modal-close" onclick="closeModal('versionModal')">Close</button>
       </div>
     </div>
     
-    <!-- Simple JavaScript for Modals -->
     <script>
       function openModal(modalId) {
         document.getElementById(modalId).style.display = 'flex';
@@ -330,6 +306,5 @@
         }
       }
     </script>
-
   </body>
 </html>
