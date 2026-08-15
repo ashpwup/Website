@@ -431,17 +431,23 @@
       </div>
     </div>
     
-    <!-- Version Info Modal -->
-    <div id="versionModal" class="modal-overlay" onclick="outsideClick(event, 'versionModal')">
-      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 480px; max-height: 85vh;">
-        <div class="modal-box-header">Website Version</div>
-        <div class="modal-box-sub">Current Version: <strong>Version 2.3.1</strong></div>
-        
-<div class="modal-changelog-title">Version 2.3.1 Patch Notes:</div>
-<ul>
-  <li><strong>CD.html Update:</strong> Added an update to cd.html for the latest physical media releases.</li>
-          </ul>
-        </div>
+<!-- Version Info Modal -->
+<div id="versionModal" class="modal-overlay" onclick="outsideClick(event, 'versionModal')">
+  <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 480px; max-height: 85vh;">
+    <div class="modal-box-header">Website Version</div>
+
+    <div class="modal-box-sub">Current Version: <strong>Version 2.3.1</strong></div>
+
+    <div class="modal-changelog-box">
+      <div class="modal-changelog-title">Version 2.3.1 Patch Notes:</div>
+      <ul>
+        <li><strong>CD.html Update:</strong> Added an update to cd.html for the latest physical media releases.</li>
+      </ul>
+    </div>
+
+    <button class="modal-close" onclick="closeModal('versionModal'); event.stopPropagation();">Close</button>
+  </div>
+</div>
 
 
         <button class="modal-close" onclick="closeModal('versionModal')">Close</button>
