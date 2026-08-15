@@ -154,18 +154,18 @@
         text-align: center;
         box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       }
-.modal-changelog-box {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  padding: 15px 20px;
-  text-align: left;
-  width: 100%;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-  max-height: 300px;
-  overflow-y: auto;
-}
+      .modal-changelog-box {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        padding: 15px 20px;
+        text-align: left;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+        max-height: 300px;
+        overflow-y: auto;
+      }
       .modal-changelog-title {
         display: inline-block;
         background: rgba(255, 255, 255, 0.08);
@@ -220,14 +220,16 @@
   </head>
   <body>
 
-   <!-- Normal Navigation Bar -->
-    <nav class="top-links">
-      <a href="index.html">Homepage</a>
-      <a href="ashpwup.html">ashpwup's Music</a>
-      <a href="josh.wav.html">JOSH.WAV'S Music</a>
-      <a href="socials.html">Socials</a>
-      <a href="CD.html">Physical Media</a>
-    </nav>
+    <!-- Main Content Wrapper -->
+    <div class="main-wrapper">
+      <!-- Normal Navigation Bar -->
+      <nav class="top-links">
+        <a href="index.html">Homepage</a>
+        <a href="ashpwup.html">ashpwup's Music</a>
+        <a href="josh.wav.html">JOSH.WAV'S Music</a>
+        <a href="socials.html">Socials</a>
+        <a href="CD.html">Physical Media</a>
+      </nav>
 
       <!-- Welcome Marquee -->
       <marquee>
@@ -245,7 +247,7 @@
       </div>
     </div>
 
-   <!-- Footer with Small Hyperlinks -->
+    <!-- Footer with Small Hyperlinks -->
     <footer class="site-footer">
       <a onclick="openModal('contactModal')">Contact Info</a> 
       <a onclick="openModal('versionModal')">Website Version Info</a>
@@ -261,24 +263,23 @@
       </div>
     </div>
 
+    <!-- Version Info Modal -->
+    <div id="versionModal" class="modal-overlay" onclick="outsideClick(event, 'versionModal')">
+      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 480px; max-height: 85vh;">
+        <div class="modal-box-header">Website Version</div>
 
-<!-- Version Info Modal -->
-<div id="versionModal" class="modal-overlay" onclick="outsideClick(event, 'versionModal')">
-  <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 480px; max-height: 85vh;">
-    <div class="modal-box-header">Website Version</div>
+        <div class="modal-box-sub">Current Version: <strong>Version 2.3.1</strong></div>
 
-    <div class="modal-box-sub">Current Version: <strong>Version 2.3.1</strong></div>
+        <div class="modal-changelog-box">
+          <div class="modal-changelog-title">Version 2.3.1 Patch Notes:</div>
+          <ul>
+            <li><strong>CD.html Update:</strong> Added an update to cd.html for the latest physical media releases.</li>
+          </ul>
+        </div>
 
-    <div class="modal-changelog-box">
-      <div class="modal-changelog-title">Version 2.3.1 Patch Notes:</div>
-      <ul>
-        <li><strong>CD.html Update:</strong> Added an update to cd.html for the latest physical media releases.</li>
-      </ul>
+        <button class="modal-close" onclick="closeModal('versionModal'); event.stopPropagation();">Close</button>
+      </div>
     </div>
-
-    <button class="modal-close" onclick="closeModal('versionModal'); event.stopPropagation();">Close</button>
-  </div>
-</div>
 
     <!-- Simple JavaScript for Modals -->
     <script>
