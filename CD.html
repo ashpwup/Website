@@ -209,6 +209,25 @@
         font-size: 16px;
         color: #ffffff;
       }
+
+      /* Responsive fix for smaller screens (stack image above text so images keep square aspect ratio) */
+      @media (max-width: 580px) {
+        .store-row {
+          flex-direction: column;
+        }
+        .store-art {
+          width: 100%;
+          min-width: 100%;
+          height: auto;
+          aspect-ratio: 1 / 1;
+          border-right: none;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .store-details {
+          padding: 15px 20px;
+        }
+      }
+
       .site-footer {
         text-align: center;
         margin: 20px 0 35px 0;
