@@ -3,7 +3,418 @@
   <head>
     <meta charset="UTF-8">
     <!-- CSS links belong in the head section -->
+    <link rel="stylesheet" href="style.css"><!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- Viewport Meta Tag for Pixel 10 Pro Scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- CSS links belong in the head section -->
     <link rel="stylesheet" href="style.css">
+    <title>Homepage</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-image: url('images/background.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .main-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+      .home-content {
+        max-width: 800px;
+        margin: 15px auto;
+        padding: 0 16px;
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .home-content p {
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #ffffff;
+        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
+      }
+      /* Normal Navigation bar with top bar fixes */
+      .top-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        text-align: center;
+        padding: 15px 10px;
+        margin-bottom: 10px;
+        font-family: Arial, sans-serif;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .top-links a {
+        color: #ffffff;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.12);
+        padding: 8px 16px;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      .top-links a:hover {
+        background: rgba(255, 255, 255, 0.25);
+        color: #d8b4fe;
+      }
+      /* Footer Links & Modal Styles */
+      .site-footer {
+        text-align: center;
+        margin: 15px 0 25px 0;
+        font-family: Arial, sans-serif;
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+      }
+      .site-footer a {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        border-top: 1px solid rgba(255, 255, 255, 0.75);
+        border-radius: 8px;
+        padding: 6px 12px;
+        margin: 3px 2px;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        font-size: 13px;
+        color: #ffffff;
+        text-shadow: 1px 1px 0px #000000, 
+                     -1px -1px 0px #000000, 
+                     1px -1px 0px #000000, 
+                     -1px 1px 0px #000000;
+        letter-spacing: 1px;
+        text-decoration: none;
+        cursor: pointer;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 
+                    0 4px 6px rgba(0, 0, 0, 0.2);
+      }
+      .site-footer a:hover {
+        background: rgba(255, 255, 255, 0.25);
+        color: #d8b4fe;
+      }
+
+      /* Pixel 10 Pro Dimensions & Layout Tweaks (~412px width scale optimization) */
+      body.force-mobile-view {
+        max-width: 412px;
+        margin: 0 auto;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      }
+      body.force-mobile-view .home-content {
+        padding: 0 14px;
+        margin: 5px auto;
+      }
+      body.force-mobile-view .home-content p {
+        font-size: 14.5px;
+        line-height: 1.45;
+      }
+      body.force-mobile-view marquee h3 {
+        font-size: 28px !important;
+      }
+      body.force-mobile-view .top-links {
+        padding: 8px 4px;
+        gap: 5px;
+      }
+      body.force-mobile-view .top-links a {
+        padding: 5px 9px;
+        font-size: 12px;
+      }
+
+      /* Smooth Fade Transition Overlay */
+      #fadeOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.35s ease-in-out;
+        z-index: 9999;
+      }
+
+      /* Modal Styles */
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        padding: 15px;
+        box-sizing: border-box;
+      }
+      .modal-content {
+        background: #1a0f2e;
+        border: 2px solid rgba(216, 180, 254, 0.4);
+        border-radius: 16px;
+        padding: 20px;
+        color: #ffffff;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        width: 100%;
+        max-width: 380px;
+        font-family: Arial, sans-serif;
+        box-sizing: border-box;
+      }
+      .modal-box-header {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 8px;
+        padding: 8px 20px;
+        font-weight: bold;
+        font-size: 16px;
+        color: #ffffff;
+        text-shadow: 1px 1px 0 #000;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      }
+      .modal-box-sub {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 8px;
+        padding: 10px 15px;
+        font-size: 13px;
+        color: #ffffff;
+        text-shadow: 1px 1px 0 #000;
+        margin-bottom: 15px;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      }
+      .modal-changelog-box {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        padding: 12px 15px;
+        text-align: left;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 15px;
+        max-height: 200px;
+        overflow-y: auto;
+      }
+      .modal-changelog-title {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 6px;
+        padding: 6px 12px;
+        font-size: 12px;
+        font-weight: bold;
+        color: #ffffff;
+        text-shadow: 1px 1px 0 #000;
+        margin-bottom: 10px;
+      }
+      .modal-changelog-box ul {
+        margin: 0;
+        padding-left: 16px;
+        font-size: 12px;
+        line-height: 1.5;
+        color: #ffffff;
+        text-shadow: 1px 1px 0 #000;
+      }
+      .modal-changelog-box li {
+        margin-bottom: 6px;
+      }
+      .modal-close {
+        background: rgba(147, 51, 234, 0.55);
+        border: 1px solid rgba(216, 180, 254, 0.5);
+        border-radius: 8px;
+        padding: 8px 24px;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 14px;
+        cursor: pointer;
+        text-shadow: 1px 1px 0 #000;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      }
+      .modal-close:hover {
+        background: rgba(168, 85, 247, 0.8);
+        color: #d8b4fe;
+      }
+      .modal-content ::selection {
+        background: transparent;
+        color: #ffffff;
+      }
+      .modal-content ::-moz-selection {
+        background: transparent;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Fade Transition Overlay Element -->
+    <div id="fadeOverlay"></div>
+
+    <!-- Main Content Wrapper -->
+    <div class="main-wrapper">
+      <!-- Normal Navigation Bar -->
+      <nav class="top-links">
+        <a href="index.html">Homepage</a>
+        <a href="ashpwup.html">ashpwup's Music</a>
+        <a href="josh.wav.html">JOSH.WAV'S Music</a>
+        <a href="socials.html">Socials</a>
+        <a href="CD.html">Physical Media</a>
+      </nav>
+
+      <!-- Welcome Marquee -->
+      <marquee>
+        <h3 style="font-size: 50px; font-weight: bold; margin: 5px 0; text-shadow: 2px 2px 0px #000000; letter-spacing: 1px;">Welcome to my website!</h3>
+      </marquee>
+
+      <!-- Main Content Container with constrained width and centered text -->
+      <div class="home-content">
+        <p>
+          hi im ash :3 welcome to my site !! i just kinda do whatever, mostly making music, messing with 3d character models, rigging, and creating custom textures for VRchat. i also do physical media stuff and other random creative projects whenever i feel like it.<br><br>
+          feel free to look around at my music, check out the website more by clicking the top links, or go to the socials tab for my socials if ur interested :3 
+          
+          also! if you need to contact me in anyway my email is at the bottom of the website tho I respond more quickly on discord feel free to join my discord server if you need to contact me about something asap!
+        </p>
+      </div>
+    </div>
+
+    <!-- Footer with Small Hyperlinks -->
+    <footer class="site-footer">
+      <a onclick="openModal('contactModal')">Contact Info</a> 
+      <a onclick="openModal('versionModal')">Website Version Info</a>
+      <a id="viewModeToggle" onclick="toggleViewMode()">View Desktop Site</a>
+    </footer>
+
+    <!-- Contact Info Modal -->
+    <div id="contactModal" class="modal-overlay" onclick="outsideClick(event, 'contactModal')">
+      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <div class="modal-box-header">Contact Info</div>
+        <div class="modal-box-sub">Email: <a href="mailto:ash.08.514812@gmail.com" style="color: #d8b4fe; text-decoration: underline;">ash.08.514812@gmail.com</a></div>
+        <div class="modal-box-sub" style="font-size: 13px; line-height: 1.4;">If you need my phone number, please contact me via email first before requesting it!</div>
+        <button class="modal-close" onclick="closeModal('contactModal')">Close</button>
+      </div>
+    </div>
+
+    <!-- Version Info Modal -->
+    <div id="versionModal" class="modal-overlay" onclick="outsideClick(event, 'versionModal')">
+      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; max-height: 85vh;">
+        <div class="modal-box-header">Website Version</div>
+
+        <div class="modal-box-sub">Current Version: <strong>Version 2.3.1</strong></div>
+
+        <div class="modal-changelog-box">
+          <div class="modal-changelog-title">Version 2.3.1 Patch Notes:</div>
+          <ul>
+            <li><strong>CD.html Update:</strong> Added an update to cd.html for the latest physical media releases.</li>
+          </ul>
+        </div>
+
+        <button class="modal-close" onclick="closeModal('versionModal'); event.stopPropagation();">Close</button>
+      </div>
+    </div>
+
+    <!-- JavaScript for Modals, Device Detection, and Smooth Fade Transition -->
+    <script>
+      function openModal(modalId) {
+        document.getElementById(modalId).style.display = 'flex';
+      }
+      function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+      }
+      function outsideClick(event, modalId) {
+        if (event.target === document.getElementById(modalId)) {
+          closeModal(modalId);
+        }
+      }
+
+      // Stable Device Detector & View Mode Manager
+      function checkMobileDevice() {
+          const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+          const toggleBtn = document.getElementById('viewModeToggle');
+          const savedPreference = localStorage.getItem('viewMode');
+
+          if (savedPreference === 'desktop') {
+              document.body.classList.remove('force-mobile-view');
+              document.body.classList.add('force-desktop-view');
+              if (toggleBtn) toggleBtn.innerText = 'View Mobile Site';
+          } else if (savedPreference === 'mobile') {
+              document.body.classList.remove('force-desktop-view');
+              document.body.classList.add('force-mobile-view');
+              if (toggleBtn) toggleBtn.innerText = 'View Desktop Site';
+          } else {
+              if (isMobile) {
+                  document.body.classList.add('force-mobile-view');
+                  if (toggleBtn) toggleBtn.innerText = 'View Desktop Site';
+              } else {
+                  document.body.classList.add('force-desktop-view');
+                  if (toggleBtn) toggleBtn.innerText = 'View Mobile Site';
+              }
+          }
+      }
+
+      function toggleViewMode() {
+          const toggleBtn = document.getElementById('viewModeToggle');
+          const overlay = document.getElementById('fadeOverlay');
+
+          // Step 1: Fade to black
+          overlay.style.opacity = '1';
+
+          setTimeout(() => {
+              // Step 2: Switch modes while screen is black
+              if (document.body.classList.contains('force-desktop-view')) {
+                  document.body.classList.remove('force-desktop-view');
+                  document.body.classList.add('force-mobile-view');
+                  localStorage.setItem('viewMode', 'mobile');
+                  toggleBtn.innerText = 'View Desktop Site';
+              } else {
+                  document.body.classList.remove('force-mobile-view');
+                  document.body.classList.add('force-desktop-view');
+                  localStorage.setItem('viewMode', 'desktop');
+                  toggleBtn.innerText = 'View Mobile Site';
+              }
+
+              // Step 3: Unfade back to normal
+              setTimeout(() => {
+                  overlay.style.opacity = '0';
+              }, 50);
+          }, 350); // Matches the CSS transition duration
+      }
+
+      window.addEventListener('DOMContentLoaded', checkMobileDevice);
+    </script>
+    
+  </body>
+</html>
     <title>Homepage</title>
     <style>
       html, body {
