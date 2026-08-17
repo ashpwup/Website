@@ -2,26 +2,50 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <!-- Viewport Meta Tag for Proper Mobile Scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ashpwup's Music</title>
     <!-- CSS links belong in the head section -->
     <link rel="stylesheet" href="style.css">
     <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
       body {
         background-color: #12081f;
         color: #ffffff;
-        margin: 0;
-        padding-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-bottom: 0;
+      }
+      .main-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
       }
       .album-grid {
         text-align: center;
         max-width: 1400px;
         margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        width: 100%;
+        box-sizing: border-box;
       }
       .album-item {
         display: inline-block;
         vertical-align: top;
         width: 275px;
-        margin: 0 10px 25px 10px;
+        margin: 0;
         text-align: center;
       }
       .album-item img {
@@ -105,14 +129,16 @@
       /* Artist Profile Box Styles */
       .artist-profile-container {
         max-width: 1250px;
-        margin: 30px auto 35px auto;
+        margin: 15px auto 25px auto;
         background: rgba(255, 255, 255, 0.12);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border: 2px solid rgba(255, 255, 255, 0.25);
         border-radius: 16px;
-        padding: 25px;
+        padding: 20px;
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        box-sizing: border-box;
+        width: 92%;
       }
       .artist-header-box {
         display: inline-block;
@@ -141,13 +167,15 @@
         border-top: 1px solid rgba(255, 255, 255, 0.7);
         border-radius: 8px;
         padding: 10px 16px;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 4px 6px rgba(0, 0, 0, 0.2);
         font-family: Arial, sans-serif;
         font-size: 13px;
         color: #ffffff;
         text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
         letter-spacing: 0.5px;
+        box-sizing: border-box;
+        width: 100%;
       }
       /* Music & Physical Media Section Container */
       .music-section-container {
@@ -196,23 +224,29 @@
         color: #d8b4fe;
       }
       
-      /* Normal Navigation bar - updated to match updated top-links glass and spacing style */
+      /* Clean and adaptive Navigation bar */
       .top-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 6px;
         text-align: center;
-        padding: 20px 0;
-        margin-bottom: 30px;
+        padding: 15px 10px;
+        margin-bottom: 10px;
         font-family: Arial, sans-serif;
+        width: 100%;
+        box-sizing: border-box;
       }
       .top-links a {
         color: #ffffff;
         font-weight: bold;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
         text-decoration: none;
-        margin: 0 8px;
         background: rgba(255, 255, 255, 0.12);
-        padding: 8px 16px;
+        padding: 7px 12px;
         border-radius: 6px;
         border: 1px solid rgba(255, 255, 255, 0.3);
+        font-size: 14px;
       }
       .top-links a:hover {
         background: rgba(255, 255, 255, 0.25);
@@ -231,8 +265,11 @@
       /* Footer Links & Modal Styles */
       .site-footer {
         text-align: center;
-        margin: 40px 0 20px 0;
+        margin: 20px 0 35px 0;
         font-family: Arial, sans-serif;
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
       }
       .site-footer a {
         display: inline-block;
@@ -242,8 +279,8 @@
         border: 1px solid rgba(255, 255, 255, 0.45);
         border-top: 1px solid rgba(255, 255, 255, 0.75);
         border-radius: 8px;
-        padding: 6px 14px;
-        margin: 0 5px;
+        padding: 8px 16px;
+        margin: 4px;
         font-family: Arial, sans-serif;
         font-weight: bold;
         font-size: 14px;
@@ -270,26 +307,25 @@
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(4px);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
         justify-content: center;
         align-items: center;
         z-index: 1000;
+        padding: 15px;
+        box-sizing: border-box;
       }
       .modal-content {
-        background: rgba(20, 10, 35, 0.85);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 2px solid rgba(168, 85, 247, 0.4);
-        border-top: 2px solid rgba(168, 85, 247, 0.7);
-        border-radius: 12px;
-        padding: 25px;
-        width: 320px;
+        background: #1a0f2e;
+        border: 2px solid rgba(216, 180, 254, 0.4);
+        border-radius: 16px;
+        padding: 24px;
         color: #ffffff;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        width: 100%;
+        max-width: 380px;
         font-family: Arial, sans-serif;
-        text-align: center;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
-        letter-spacing: 1px;
+        box-sizing: border-box;
       }
       .modal-box-header {
         display: inline-block;
@@ -302,7 +338,7 @@
         font-size: 16px;
         color: #ffffff;
         text-shadow: 1px 1px 0 #000;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       }
       .modal-box-sub {
@@ -311,11 +347,11 @@
         border: 1px solid rgba(255, 255, 255, 0.25);
         border-top: 1px solid rgba(255, 255, 255, 0.4);
         border-radius: 8px;
-        padding: 10px 20px;
-        font-size: 14px;
+        padding: 10px 15px;
+        font-size: 13px;
         color: #ffffff;
         text-shadow: 1px 1px 0 #000;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         width: 100%;
         box-sizing: border-box;
         text-align: center;
@@ -325,12 +361,12 @@
         background: rgba(255, 255, 255, 0.04);
         border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: 10px;
-        padding: 15px 20px;
+        padding: 12px 15px;
         text-align: left;
         width: 100%;
         box-sizing: border-box;
-        margin-bottom: 20px;
-        max-height: 300px;
+        margin-bottom: 15px;
+        max-height: 200px;
         overflow-y: auto;
       }
       .modal-changelog-title {
@@ -339,43 +375,38 @@
         border: 1px solid rgba(255, 255, 255, 0.3);
         border-radius: 6px;
         padding: 6px 12px;
-        font-size: 13px;
+        font-size: 12px;
         font-weight: bold;
         color: #ffffff;
         text-shadow: 1px 1px 0 #000;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
       }
       .modal-changelog-box ul {
         margin: 0;
-        padding-left: 18px;
-        font-size: 13px;
-        line-height: 1.6;
+        padding-left: 16px;
+        font-size: 12px;
+        line-height: 1.5;
         color: #ffffff;
         text-shadow: 1px 1px 0 #000;
       }
       .modal-changelog-box li {
-        margin-bottom: 8px;
-      }
-      .modal-changelog-box li strong {
-        color: #ffffff;
+        margin-bottom: 6px;
       }
       .modal-close {
-        background: rgba(147, 51, 234, 0.6);
-        backdrop-filter: blur(4px);
+        background: rgba(147, 51, 234, 0.55);
         border: 1px solid rgba(216, 180, 254, 0.5);
+        border-radius: 8px;
+        padding: 8px 24px;
         color: #ffffff;
-        font-family: Arial, sans-serif;
         font-weight: bold;
-        padding: 6px 16px;
-        border-radius: 6px;
+        font-size: 14px;
         cursor: pointer;
-        margin-top: 15px;
+        text-shadow: 1px 1px 0 #000;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
       }
       .modal-close:hover {
         background: rgba(168, 85, 247, 0.8);
-        border-color: #d8b4fe;
+        color: #d8b4fe;
       }
       .modal-content ::selection, .fake-player ::selection {
         background: transparent;
@@ -389,76 +420,79 @@
   </head>
   <body>
 
-   <!-- Normal Navigation Bar -->
-    <nav class="top-links">
-      <a href="index.html">Homepage</a>
-      <a href="ashpwup.html">ashpwup's Music</a>
-      <a href="josh.wav.html">JOSH.WAV'S Music</a>
-      <a href="socials.html">Socials</a>
-      <a href="CD.html">Physical Media</a>
-    </nav>
+    <!-- Main Content Wrapper -->
+    <div class="main-wrapper">
+      <!-- Normal Navigation Bar -->
+      <nav class="top-links">
+        <a href="index.html">Homepage</a>
+        <a href="ashpwup.html">ashpwup's Music</a>
+        <a href="josh.wav.html">JOSH.WAV'S Music</a>
+        <a href="socials.html">Socials</a>
+        <a href="CD.html">Physical Media</a>
+      </nav>
 
-    <!-- ashpwup name scrolling -->
-    <marquee>
-      <h3 style="font-size: 50px; font-weight: bold; margin: 5px 0; text-shadow: 2px 2px 0px #000000; letter-spacing: 1px;">ashpwup!</h3>   
-    </marquee>
+      <!-- ashpwup name scrolling -->
+      <marquee>
+        <h3 style="font-size: 40px; font-weight: bold; margin: 5px 0; text-shadow: 2px 2px 0px #000000; letter-spacing: 1px;">ashpwup!</h3>   
+      </marquee>
 
-    <!-- Artist Profile Section -->
-    <div style="text-align: center;">
-      <div class="artist-profile-container">
-        <div class="artist-desc-box">who am I?? well!!! I am ashpwup :3c I am an independent music producer, digital and physical media publisher, and VRChat texture creator I hope you will enjoy my music and this website!!</div>
+      <!-- Artist Profile Section -->
+      <div style="text-align: center; width: 100%;">
+        <div class="artist-profile-container">
+          <div class="artist-desc-box">who am I?? well!!! I am ashpwup :3c I am an independent music producer, digital and physical media publisher, and VRChat texture creator I hope you will enjoy my music and this website!!</div>
 
-        <!-- Centered Album Covers Container -->
-        <div class="album-grid">
-          
-          <!-- 1. Arf! (Deluxe) -->
-          <div class="album-item">
-            <a href="https://distrokid.com/hyperfollow/ashpwup/arf-deluxe?ref=release" target="_blank">
-              <img src="images/album covers/cover1.jpg" alt="cover 1" style="border: 3px solid #7A7850;" />
-            </a>
-            <br>
-            <div class="album-title">Arf! (Deluxe)</div>
-            <div class="bandcamp-player" style="border: 2px solid #7A7850;">
-              <iframe src="https://bandcamp.com/EmbeddedPlayer/album=2147711351/size=large/bgcol=181a1b/linkcol=7A7850/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://ashpwup.bandcamp.com/album/arf-deluxe">Arf! (Deluxe) by ashpwup</a></iframe>
+          <!-- Centered Album Covers Container -->
+          <div class="album-grid">
+            
+            <!-- 1. Arf! (Deluxe) -->
+            <div class="album-item">
+              <a href="https://distrokid.com/hyperfollow/ashpwup/arf-deluxe?ref=release" target="_blank">
+                <img src="images/album covers/cover1.jpg" alt="cover 1" style="border: 3px solid #7A7850;" />
+              </a>
+              <br>
+              <div class="album-title">Arf! (Deluxe)</div>
+              <div class="bandcamp-player" style="border: 2px solid #7A7850;">
+                <iframe src="https://bandcamp.com/EmbeddedPlayer/album=2147711351/size=large/bgcol=181a1b/linkcol=7A7850/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://ashpwup.bandcamp.com/album/arf-deluxe">Arf! (Deluxe) by ashpwup</a></iframe>
+              </div>
             </div>
-          </div>
-          
-          <!-- 2. RECKLESSNESS -->
-          <div class="album-item">
-            <a href="https://distrokid.com/hyperfollow/ashpwup/recklessness?ref=release" target="_blank">
-              <img src="images/album covers/cover2.jpg" alt="cover 2" style="border: 3px solid #F0441C;" />
-            </a>
-            <br>
-            <div class="album-title">RECKLESSNESS</div>
-            <div class="bandcamp-player" style="border: 2px solid #F0441C;">
-              <iframe src="https://bandcamp.com/EmbeddedPlayer/album=4253943077/size=large/bgcol=181a1b/linkcol=F0441C/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://ashpwup.bandcamp.com/album/recklessness">RECKLESSNESS by ashpwup</a></iframe>
+            
+            <!-- 2. RECKLESSNESS -->
+            <div class="album-item">
+              <a href="https://distrokid.com/hyperfollow/ashpwup/recklessness?ref=release" target="_blank">
+                <img src="images/album covers/cover2.jpg" alt="cover 2" style="border: 3px solid #F0441C;" />
+              </a>
+              <br>
+              <div class="album-title">RECKLESSNESS</div>
+              <div class="bandcamp-player" style="border: 2px solid #F0441C;">
+                <iframe src="https://bandcamp.com/EmbeddedPlayer/album=4253943077/size=large/bgcol=181a1b/linkcol=F0441C/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://ashpwup.bandcamp.com/album/recklessness">RECKLESSNESS by ashpwup</a></iframe>
+              </div>
             </div>
-          </div>
-          
-          <!-- 3. PuppySoundSystem Vol. 1 -->
-          <div class="album-item">
-            <a href="https://distrokid.com/hyperfollow/ashpwup/puppysoundsystem-vol-1?ref=release" target="_blank">
-              <img src="images/album covers/cover3.jpg" alt="cover 3" style="border: 3px solid #7B27D9;" />
-            </a>
-            <br>
-            <div class="album-title">PuppySoundSystem Vol. 1</div>
-            <div class="bandcamp-player" style="border: 2px solid #7B27D9;">
-              <iframe src="https://bandcamp.com/EmbeddedPlayer/album=4168882320/size=large/bgcol=181a1b/linkcol=7B27D9/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://ashpwup.bandcamp.com/album/puppysoundsystem-vol-1">PuppySoundSystem Vol. 1 by ashpwup</a></iframe>
+            
+            <!-- 3. PuppySoundSystem Vol. 1 -->
+            <div class="album-item">
+              <a href="https://distrokid.com/hyperfollow/ashpwup/puppysoundsystem-vol-1?ref=release" target="_blank">
+                <img src="images/album covers/cover3.jpg" alt="cover 3" style="border: 3px solid #7B27D9;" />
+              </a>
+              <br>
+              <div class="album-title">PuppySoundSystem Vol. 1</div>
+              <div class="bandcamp-player" style="border: 2px solid #7B27D9;">
+                <iframe src="https://bandcamp.com/EmbeddedPlayer/album=4168882320/size=large/bgcol=181a1b/linkcol=7B27D9/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://ashpwup.bandcamp.com/album/puppysoundsystem-vol-1">PuppySoundSystem Vol. 1 by ashpwup</a></iframe>
+              </div>
             </div>
-          </div>
 
-          <!-- 4. Brain Corruption -->
-          <div class="album-item">
-            <a href="https://ashpwup.bandcamp.com/album/brain-corruption" target="_blank">
-              <img src="images/album covers/cover4(teaser).jpg" alt="cover4(teaser)" style="border: 3px solid #8B00A8;" />
-            </a>
-            <br>
-            <div class="album-title">brain corruption</div>
-            <div class="bandcamp-player" style="width: 265px; height: 120px; border: 2px solid #8B00A8; border-radius: 10px; overflow: hidden;">
-              <iframe style="border: 0; width: 265px; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=2741861253/size=large/bgcol=181a1b/linkcol=056cc4/transparent=true/tracklist=false/artwork=small/tracks=2454352947,2902645956,1425694970,328371687,1716343632,2141455239,3025980116,4029243424,2412784212,3763592265,2620389277,417435631,515612649,3215956987,3986313212/esig=ab98062312e36cc32dae6877c5f1269a/" seamless><a href="https://ashpwup.bandcamp.com/album/brain-corruption">brain corruption by ashpwup</a></iframe>
+            <!-- 4. Brain Corruption -->
+            <div class="album-item">
+              <a href="https://ashpwup.bandcamp.com/album/brain-corruption" target="_blank">
+                <img src="images/album covers/cover4(teaser).jpg" alt="cover4(teaser)" style="border: 3px solid #8B00A8;" />
+              </a>
+              <br>
+              <div class="album-title">brain corruption</div>
+              <div class="bandcamp-player" style="width: 265px; height: 120px; border: 2px solid #8B00A8; border-radius: 10px; overflow: hidden;">
+                <iframe style="border: 0; width: 265px; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=2741861253/size=large/bgcol=181a1b/linkcol=056cc4/transparent=true/tracklist=false/artwork=small/tracks=2454352947,2902645956,1425694970,328371687,1716343632,2141455239,3025980116,4029243424,2412784212,3763592265,2620389277,417435631,515612649,3215956987,3986313212/esig=ab98062312e36cc32dae6877c5f1269a/" seamless><a href="https://ashpwup.bandcamp.com/album/brain-corruption">brain corruption by ashpwup</a></iframe>
+              </div>
             </div>
-          </div>
 
+          </div>
         </div>
       </div>
     </div>
@@ -471,7 +505,7 @@
 
     <!-- Contact Info Modal -->
     <div id="contactModal" class="modal-overlay" onclick="outsideClick(event, 'contactModal')">
-      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 420px;">
+      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
         <div class="modal-box-header">Contact Info</div>
         <div class="modal-box-sub">Email: <a href="mailto:ash.08.514812@gmail.com" style="color: #d8b4fe; text-decoration: underline;">ash.08.514812@gmail.com</a></div>
         <div class="modal-box-sub" style="font-size: 13px; line-height: 1.4;">If you need my phone number, please contact me via email first before requesting it!</div>
@@ -479,10 +513,9 @@
       </div>
     </div>
 
-
     <!-- Version Info Modal -->
     <div id="versionModal" class="modal-overlay" onclick="outsideClick(event, 'versionModal')">
-      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 480px; max-height: 85vh;">
+      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; max-height: 85vh;">
         <div class="modal-box-header">Website Version</div>
 
         <div class="modal-box-sub">Current Version: <strong>Version 2.3.1</strong></div>
@@ -498,7 +531,7 @@
       </div>
     </div>
 
-    <!-- Simple JavaScript for Modals -->
+    <!-- JavaScript for Modals -->
     <script>
       function openModal(modalId) {
         document.getElementById(modalId).style.display = 'flex';
