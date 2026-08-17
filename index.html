@@ -2,6 +2,8 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <!-- Viewport Meta Tag for Mobile Scale Detection -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS links belong in the head section -->
     <link rel="stylesheet" href="style.css">
     <title>Homepage</title>
@@ -99,6 +101,7 @@
         background: rgba(255, 255, 255, 0.25);
         color: #d8b4fe;
       }
+
       /* Modal Styles */
       .modal-overlay {
         display: none;
@@ -281,7 +284,7 @@
       </div>
     </div>
 
-    <!-- Simple JavaScript for Modals -->
+    <!-- JavaScript for Modals -->
     <script>
       function openModal(modalId) {
         document.getElementById(modalId).style.display = 'flex';
