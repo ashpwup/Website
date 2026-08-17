@@ -253,11 +253,12 @@
         text-decoration: none;
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 4px 6px rgba(0, 0, 0, 0.2);
         cursor: pointer;
-        font-family: Arial, sans-serif;
+        font-family: inherit; /* Inherits custom cursor from style.css */
       }
       .site-footer a:hover, .site-footer button:hover {
         background: rgba(255, 255, 255, 0.25);
         color: #d8b4fe;
+        cursor: pointer; /* Ensures custom cursor applies on hover */
       }
       /* Modal Styles */
       .modal-overlay {
@@ -364,10 +365,12 @@
         cursor: pointer;
         text-shadow: 1px 1px 0 #000;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        font-family: inherit;
       }
       .modal-close:hover {
         background: rgba(168, 85, 247, 0.8);
         color: #d8b4fe;
+        cursor: pointer;
       }
       .modal-content ::selection {
         background: transparent;
