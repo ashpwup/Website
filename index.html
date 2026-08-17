@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <!-- Viewport Meta Tag for Mobile Scale Detection -->
+    <!-- Viewport Meta Tag for Proper Mobile Scaling -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS links belong in the head section -->
     <link rel="stylesheet" href="style.css">
@@ -12,6 +12,7 @@
         height: 100%;
         margin: 0;
         padding: 0;
+        overflow-x: hidden;
       }
       body {
         background-image: url('images/background.jpg');
@@ -28,30 +29,36 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;
+        box-sizing: border-box;
       }
       .home-content {
         max-width: 800px;
-        margin: 30px auto;
-        padding: 0 20px;
+        margin: 20px auto;
+        padding: 0 16px;
         text-align: center;
+        width: 100%;
+        box-sizing: border-box;
       }
       .home-content p {
         font-family: Arial, sans-serif;
-        font-size: 20px;
+        font-size: 17px;
         line-height: 1.6;
         color: #ffffff;
         text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
       }
-      /* Normal Navigation bar with top bar fixes */
+      /* Clean and adaptive Navigation bar */
       .top-links {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 8px;
+        gap: 6px;
         text-align: center;
-        padding: 20px 10px;
-        margin-bottom: 30px;
+        padding: 15px 10px;
+        margin-bottom: 15px;
         font-family: Arial, sans-serif;
+        width: 100%;
+        box-sizing: border-box;
       }
       .top-links a {
         color: #ffffff;
@@ -59,9 +66,10 @@
         text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
         text-decoration: none;
         background: rgba(255, 255, 255, 0.12);
-        padding: 8px 16px;
+        padding: 7px 12px;
         border-radius: 6px;
         border: 1px solid rgba(255, 255, 255, 0.3);
+        font-size: 14px;
       }
       .top-links a:hover {
         background: rgba(255, 255, 255, 0.25);
@@ -70,8 +78,11 @@
       /* Footer Links & Modal Styles */
       .site-footer {
         text-align: center;
-        margin: 20px 0 30px 0;
+        margin: 20px 0 35px 0;
         font-family: Arial, sans-serif;
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
       }
       .site-footer a {
         display: inline-block;
@@ -81,8 +92,8 @@
         border: 1px solid rgba(255, 255, 255, 0.45);
         border-top: 1px solid rgba(255, 255, 255, 0.75);
         border-radius: 8px;
-        padding: 6px 14px;
-        margin: 0 5px;
+        padding: 8px 16px;
+        margin: 4px;
         font-family: Arial, sans-serif;
         font-weight: bold;
         font-size: 14px;
@@ -116,16 +127,20 @@
         justify-content: center;
         align-items: center;
         z-index: 1000;
+        padding: 15px;
+        box-sizing: border-box;
       }
       .modal-content {
         background: #1a0f2e;
         border: 2px solid rgba(216, 180, 254, 0.4);
         border-radius: 16px;
-        padding: 30px;
+        padding: 24px;
         color: #ffffff;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        max-width: 90%;
+        width: 100%;
+        max-width: 380px;
         font-family: Arial, sans-serif;
+        box-sizing: border-box;
       }
       .modal-box-header {
         display: inline-block;
@@ -138,7 +153,7 @@
         font-size: 16px;
         color: #ffffff;
         text-shadow: 1px 1px 0 #000;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       }
       .modal-box-sub {
@@ -147,11 +162,11 @@
         border: 1px solid rgba(255, 255, 255, 0.25);
         border-top: 1px solid rgba(255, 255, 255, 0.4);
         border-radius: 8px;
-        padding: 10px 20px;
-        font-size: 14px;
+        padding: 10px 15px;
+        font-size: 13px;
         color: #ffffff;
         text-shadow: 1px 1px 0 #000;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         width: 100%;
         box-sizing: border-box;
         text-align: center;
@@ -161,12 +176,12 @@
         background: rgba(255, 255, 255, 0.04);
         border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: 10px;
-        padding: 15px 20px;
+        padding: 12px 15px;
         text-align: left;
         width: 100%;
         box-sizing: border-box;
-        margin-bottom: 20px;
-        max-height: 300px;
+        margin-bottom: 15px;
+        max-height: 200px;
         overflow-y: auto;
       }
       .modal-changelog-title {
@@ -175,25 +190,22 @@
         border: 1px solid rgba(255, 255, 255, 0.3);
         border-radius: 6px;
         padding: 6px 12px;
-        font-size: 13px;
+        font-size: 12px;
         font-weight: bold;
         color: #ffffff;
         text-shadow: 1px 1px 0 #000;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
       }
       .modal-changelog-box ul {
         margin: 0;
-        padding-left: 18px;
-        font-size: 13px;
-        line-height: 1.6;
+        padding-left: 16px;
+        font-size: 12px;
+        line-height: 1.5;
         color: #ffffff;
         text-shadow: 1px 1px 0 #000;
       }
       .modal-changelog-box li {
-        margin-bottom: 8px;
-      }
-      .modal-changelog-box li strong {
-        color: #ffffff;
+        margin-bottom: 6px;
       }
       .modal-close {
         background: rgba(147, 51, 234, 0.55);
@@ -236,7 +248,7 @@
 
       <!-- Welcome Marquee -->
       <marquee>
-        <h3 style="font-size: 50px; font-weight: bold; margin: 5px 0; text-shadow: 2px 2px 0px #000000; letter-spacing: 1px;">Welcome to my website!</h3>
+        <h3 style="font-size: 40px; font-weight: bold; margin: 5px 0; text-shadow: 2px 2px 0px #000000; letter-spacing: 1px;">Welcome to my website!</h3>
       </marquee>
 
       <!-- Main Content Container with constrained width and centered text -->
@@ -258,7 +270,7 @@
 
     <!-- Contact Info Modal -->
     <div id="contactModal" class="modal-overlay" onclick="outsideClick(event, 'contactModal')">
-      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 420px;">
+      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
         <div class="modal-box-header">Contact Info</div>
         <div class="modal-box-sub">Email: <a href="mailto:ash.08.514812@gmail.com" style="color: #d8b4fe; text-decoration: underline;">ash.08.514812@gmail.com</a></div>
         <div class="modal-box-sub" style="font-size: 13px; line-height: 1.4;">If you need my phone number, please contact me via email first before requesting it!</div>
@@ -268,7 +280,7 @@
 
     <!-- Version Info Modal -->
     <div id="versionModal" class="modal-overlay" onclick="outsideClick(event, 'versionModal')">
-      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 480px; max-height: 85vh;">
+      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; max-height: 85vh;">
         <div class="modal-box-header">Website Version</div>
 
         <div class="modal-box-sub">Current Version: <strong>Version 2.3.1</strong></div>
