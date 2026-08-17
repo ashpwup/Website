@@ -252,13 +252,11 @@
         text-shadow: 1px 1px 0px #000000;
         text-decoration: none;
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 4px 6px rgba(0, 0, 0, 0.2);
-        cursor: pointer;
-        font-family: inherit; /* Inherits custom cursor from style.css */
+        /* Removed explicit cursor declarations to let style.css custom cursor take over cleanly */
       }
       .site-footer a:hover, .site-footer button:hover {
         background: rgba(255, 255, 255, 0.25);
         color: #d8b4fe;
-        cursor: pointer; /* Ensures custom cursor applies on hover */
       }
       /* Modal Styles */
       .modal-overlay {
@@ -362,15 +360,12 @@
         color: #ffffff;
         font-weight: bold;
         font-size: 14px;
-        cursor: pointer;
         text-shadow: 1px 1px 0 #000;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        font-family: inherit;
       }
       .modal-close:hover {
         background: rgba(168, 85, 247, 0.8);
         color: #d8b4fe;
-        cursor: pointer;
       }
       .modal-content ::selection {
         background: transparent;
@@ -503,7 +498,7 @@
 
       <div class="store-layout" style="margin-bottom: 20px;">
 
-        <!-- Arf! (Deluxe) Vinyl -->
+        <!-- Arf! (Deluxe) ->
         <div class="store-row album-arf">
           <div class="store-art">
             <img src="images/album covers/cover1.jpg" alt="Arf! (Deluxe) vinyl record">
@@ -543,7 +538,7 @@
     </div>
 
     <!-- Version Info Modal -->
-    <div id="versionModal" class="modal-overlay" onclick="outsideClick(event, 'versionModal')">
+    <div id="versionModal" class="modal-overlay" onclick="outsideClick(event, `versionModal`)">
       <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; max-height: 85vh;">
         <div class="modal-box-header">Website Version</div>
 
