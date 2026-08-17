@@ -2,8 +2,6 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <!-- Viewport Meta Tag for Mobile Scale Detection -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS links belong in the head section -->
     <link rel="stylesheet" href="style.css">
     <title>Homepage</title>
@@ -101,32 +99,6 @@
         background: rgba(255, 255, 255, 0.25);
         color: #d8b4fe;
       }
-
-      /* Stable View Override Classes (Flexible scaling instead of hardcoded sizing) */
-      body.force-desktop-view {
-        /* Desktop view styling rules */
-      }
-      body.force-mobile-view .home-content {
-        padding: 0 10px;
-      }
-      body.force-mobile-view .home-content p {
-        font-size: 16px;
-      }
-
-      /* Smooth Fade Transition Overlay */
-      #fadeOverlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #000000;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.35s ease-in-out;
-        z-index: 9999;
-      }
-
       /* Modal Styles */
       .modal-overlay {
         display: none;
@@ -248,9 +220,6 @@
   </head>
   <body>
 
-    <!-- Fade Transition Overlay Element -->
-    <div id="fadeOverlay"></div>
-
     <!-- Main Content Wrapper -->
     <div class="main-wrapper">
       <!-- Normal Navigation Bar -->
@@ -282,7 +251,6 @@
     <footer class="site-footer">
       <a onclick="openModal('contactModal')">Contact Info</a> 
       <a onclick="openModal('versionModal')">Website Version Info</a>
-      <a id="viewModeToggle" onclick="toggleViewMode()">View Desktop Site</a>
     </footer>
 
     <!-- Contact Info Modal -->
@@ -313,7 +281,7 @@
       </div>
     </div>
 
-    <!-- JavaScript for Modals, Device Detection, and Smooth Fade Transition -->
+    <!-- Simple JavaScript for Modals -->
     <script>
       function openModal(modalId) {
         document.getElementById(modalId).style.display = 'flex';
@@ -326,61 +294,6 @@
           closeModal(modalId);
         }
       }
-
-      // Stable Device Detector & View Mode Manager
-      function checkMobileDevice() {
-          const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-          const toggleBtn = document.getElementById('viewModeToggle');
-          const savedPreference = localStorage.getItem('viewMode');
-
-          if (savedPreference === 'desktop') {
-              document.body.classList.remove('force-mobile-view');
-              document.body.classList.add('force-desktop-view');
-              if (toggleBtn) toggleBtn.innerText = 'View Mobile Site';
-          } else if (savedPreference === 'mobile') {
-              document.body.classList.remove('force-desktop-view');
-              document.body.classList.add('force-mobile-view');
-              if (toggleBtn) toggleBtn.innerText = 'View Desktop Site';
-          } else {
-              if (isMobile) {
-                  document.body.classList.add('force-mobile-view');
-                  if (toggleBtn) toggleBtn.innerText = 'View Desktop Site';
-              } else {
-                  document.body.classList.add('force-desktop-view');
-                  if (toggleBtn) toggleBtn.innerText = 'View Mobile Site';
-              }
-          }
-      }
-
-      function toggleViewMode() {
-          const toggleBtn = document.getElementById('viewModeToggle');
-          const overlay = document.getElementById('fadeOverlay');
-
-          // Step 1: Fade to black smoothly
-          overlay.style.opacity = '1';
-
-          setTimeout(() => {
-              // Step 2: Switch modes while screen is black
-              if (document.body.classList.contains('force-desktop-view')) {
-                  document.body.classList.remove('force-desktop-view');
-                  document.body.classList.add('force-mobile-view');
-                  localStorage.setItem('viewMode', 'mobile');
-                  toggleBtn.innerText = 'View Desktop Site';
-              } else {
-                  document.body.classList.remove('force-mobile-view');
-                  document.body.classList.add('force-desktop-view');
-                  localStorage.setItem('viewMode', 'desktop');
-                  toggleBtn.innerText = 'View Mobile Site';
-              }
-
-              // Step 3: Unfade back to normal
-              setTimeout(() => {
-                  overlay.style.opacity = '0';
-              }, 50);
-          }, 350); // Matches the CSS transition duration
-      }
-
-      window.addEventListener('DOMContentLoaded', checkMobileDevice);
     </script>
     
   </body>
