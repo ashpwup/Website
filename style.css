@@ -349,3 +349,47 @@ li {
 .music-lists a:hover {
   color: #d8b4fe;
 }
+
+/* ==========================================
+   RESPONSIVE MOBILE & DESKTOP STYLES
+   ========================================== */
+
+/* Hide elements meant only for mobile on desktop */
+.mobile-only {
+    display: none !important;
+}
+
+/* ==========================================
+   MOBILE & iOS BREAKPOINT (Max-Width: 768px)
+   ========================================== */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+        align-items: flex-start;
+    }
+
+    /* Switch visibility for desktop/mobile elements */
+    .desktop-only {
+        display: none !important;
+    }
+
+    .mobile-only {
+        display: block !important;
+    }
+
+    /* Adjust typography flow for smaller screens */
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    p, a, li {
+        font-size: 0.95rem;
+    }
+}
+
+/* ==========================================
+   iOS-SPECIFIC SAFARI FIXES
+   ========================================== */
+body.ios-device {
+    -webkit-text-size-adjust: 100%;
+}
