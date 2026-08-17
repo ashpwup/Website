@@ -2,34 +2,60 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <!-- Viewport Meta Tag for Proper Mobile Scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music and Physical Media - ashpwup</title>
     <link rel="stylesheet" href="style.css">
     <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
       body {
         background-color: #12081f;
         color: #ffffff;
-        margin: 0;
-        padding-bottom: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-bottom: 0;
         font-family: Arial, sans-serif;
       }
+      .main-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+      }
       .top-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 6px;
         text-align: center;
-        padding: 20px 0;
-        margin-bottom: 30px;
+        padding: 15px 10px;
+        margin-bottom: 10px;
+        font-family: Arial, sans-serif;
+        width: 100%;
+        box-sizing: border-box;
       }
       .top-links a {
         color: #ffffff;
         font-weight: bold;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
         text-decoration: none;
-        margin: 0 8px;
         background: rgba(255, 255, 255, 0.12);
-        padding: 8px 16px;
+        padding: 7px 12px;
         border-radius: 6px;
         border: 1px solid rgba(255, 255, 255, 0.3);
+        font-size: 14px;
       }
       .top-links a:hover {
         background: rgba(255, 255, 255, 0.25);
+        color: #d8b4fe;
       }
       h2.section-heading {
         text-align: center;
@@ -37,17 +63,19 @@
         color: #ffffff;
         text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
         letter-spacing: 1px;
-        font-size: 50px;
+        font-size: 40px;
         font-weight: bold;
         margin: 5px 0;
       }
       .store-layout {
         max-width: 800px;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 15px;
         display: flex;
         flex-direction: column;
-        gap: 35px;
+        gap: 25px;
+        width: 100%;
+        box-sizing: border-box;
       }
       .store-row {
         background: rgba(255, 255, 255, 0.06);
@@ -61,6 +89,8 @@
         overflow: hidden;
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
         transition: transform 0.2s ease, border-color 0.2s ease;
+        width: 100%;
+        box-sizing: border-box;
       }
       .store-row:hover {
         transform: translateY(-2px);
@@ -181,8 +211,11 @@
       }
       .site-footer {
         text-align: center;
-        margin: 50px 0 20px 0;
+        margin: 20px 0 35px 0;
         font-family: Arial, sans-serif;
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
       }
       .site-footer a, .site-footer button {
         display: inline-block;
@@ -193,7 +226,7 @@
         border-top: 1px solid rgba(255, 255, 255, 0.75);
         border-radius: 8px;
         padding: 8px 16px;
-        margin: 0 6px;
+        margin: 4px;
         font-weight: bold;
         font-size: 14px;
         color: #ffffff;
@@ -221,15 +254,20 @@
         justify-content: center;
         align-items: center;
         z-index: 1000;
+        padding: 15px;
+        box-sizing: border-box;
       }
       .modal-content {
         background: #1a0f2e;
         border: 2px solid rgba(216, 180, 254, 0.4);
         border-radius: 16px;
-        padding: 30px;
+        padding: 24px;
         color: #ffffff;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        max-width: 90%;
+        width: 100%;
+        max-width: 380px;
+        font-family: Arial, sans-serif;
+        box-sizing: border-box;
       }
       .modal-box-header {
         display: inline-block;
@@ -242,7 +280,7 @@
         font-size: 16px;
         color: #ffffff;
         text-shadow: 1px 1px 0 #000;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       }
       .modal-box-sub {
@@ -251,11 +289,11 @@
         border: 1px solid rgba(255, 255, 255, 0.25);
         border-top: 1px solid rgba(255, 255, 255, 0.4);
         border-radius: 8px;
-        padding: 10px 20px;
-        font-size: 14px;
+        padding: 10px 15px;
+        font-size: 13px;
         color: #ffffff;
         text-shadow: 1px 1px 0 #000;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         width: 100%;
         box-sizing: border-box;
         text-align: center;
@@ -265,12 +303,12 @@
         background: rgba(255, 255, 255, 0.04);
         border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: 10px;
-        padding: 15px 20px;
+        padding: 12px 15px;
         text-align: left;
         width: 100%;
         box-sizing: border-box;
-        margin-bottom: 20px;
-        max-height: 300px;
+        margin-bottom: 15px;
+        max-height: 200px;
         overflow-y: auto;
       }
       .modal-changelog-title {
@@ -279,25 +317,22 @@
         border: 1px solid rgba(255, 255, 255, 0.3);
         border-radius: 6px;
         padding: 6px 12px;
-        font-size: 13px;
+        font-size: 12px;
         font-weight: bold;
         color: #ffffff;
         text-shadow: 1px 1px 0 #000;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
       }
       .modal-changelog-box ul {
         margin: 0;
-        padding-left: 18px;
-        font-size: 13px;
-        line-height: 1.6;
+        padding-left: 16px;
+        font-size: 12px;
+        line-height: 1.5;
         color: #ffffff;
         text-shadow: 1px 1px 0 #000;
       }
       .modal-changelog-box li {
-        margin-bottom: 8px;
-      }
-      .modal-changelog-box li strong {
-        color: #ffffff;
+        margin-bottom: 6px;
       }
       .modal-close {
         background: rgba(147, 51, 234, 0.55);
@@ -340,129 +375,132 @@
   </head>
   <body>
 
-   <!-- Normal Navigation Bar -->
-    <nav class="top-links">
-      <a href="index.html">Homepage</a>
-      <a href="ashpwup.html">ashpwup's Music</a>
-      <a href="josh.wav.html">JOSH.WAV'S Music</a>
-      <a href="socials.html">Socials</a>
-      <a href="CD.html">Physical Media</a>
-    </nav>
+    <!-- Main Content Wrapper -->
+    <div class="main-wrapper">
+      <!-- Normal Navigation Bar -->
+      <nav class="top-links">
+        <a href="index.html">Homepage</a>
+        <a href="ashpwup.html">ashpwup's Music</a>
+        <a href="josh.wav.html">JOSH.WAV'S Music</a>
+        <a href="socials.html">Socials</a>
+        <a href="CD.html">Physical Media</a>
+      </nav>
 
-    <!-- CDs Section -->
-    <div style="height: 30px;"></div>
-    <marquee behavior="scroll" direction="left" scrollamount="4" style="display: block; width: 100%; margin-bottom: 30px;">
-      <div style="display: inline-block; width: 800px; margin: 0 auto;">
-        <h2 class="section-heading">CD Releases</h2>
-      </div>
-    </marquee>
-    
-    <div class="store-layout">
-
-      <!-- Arf! (Deluxe) -->
-      <div class="store-row album-arf">
-        <div class="store-art">
-          <img src="images/album covers/cover1.jpg" alt="Arf! (Deluxe) physical CD">
+      <!-- CDs Section -->
+      <div style="height: 20px;"></div>
+      <marquee behavior="scroll" direction="left" scrollamount="4" style="display: block; width: 100%; margin-bottom: 20px;">
+        <div style="display: inline-block; width: 800px; margin: 0 auto;">
+          <h2 class="section-heading">CD Releases</h2>
         </div>
-        <div class="store-details">
-          <div>
-            <div class="store-meta-title">Arf! (Deluxe)</div>
-            <div class="store-price">Released: April 9, 2026 &bull; $10.00 CD</div>
-            <div class="store-description">
-              the deluxe edition expanding on the original arf tracks. </div>
+      </marquee>
+      
+      <div class="store-layout">
+
+        <!-- Arf! (Deluxe) -->
+        <div class="store-row album-arf">
+          <div class="store-art">
+            <img src="images/album covers/cover1.jpg" alt="Arf! (Deluxe) physical CD">
           </div>
-          <a class="store-link"
-             href="https://kunaki.com/sales.asp?PID=PX008UX586&pp=1"
-             target="_blank" rel="noopener noreferrer">Buy CD</a>
-        </div>
-      </div>
-
-      <!-- RECKLESSNESS -->
-      <div class="store-row album-recklessness">
-        <div class="store-art">
-          <img src="images/album covers/cover2.jpg" alt="RECKLESSNESS physical CD">
-        </div>
-        <div class="store-details">
-          <div>
-            <div class="store-meta-title">RECKLESSNESS</div>
-            <div class="store-price">Released: April 23, 2026 &bull; $12.00 CD</div>
-            <div class="store-description">
-              just pure unhinged chaos and noisy melodies. grabbed a bunch of erratic ideas and threw them all into one loud ride.
+          <div class="store-details">
+            <div>
+              <div class="store-meta-title">Arf! (Deluxe)</div>
+              <div class="store-price">Released: April 9, 2026 &bull; $10.00 CD</div>
+              <div class="store-description">
+                the deluxe edition expanding on the original arf tracks. </div>
             </div>
+            <a class="store-link"
+               href="https://kunaki.com/sales.asp?PID=PX008UX586&pp=1"
+               target="_blank" rel="noopener noreferrer">Buy CD</a>
           </div>
-          <a class="store-link"
-             href="https://kunaki.com/sales.asp?PID=PX00Z1YNCA&pp=1"
-             target="_blank" rel="noopener noreferrer">Buy CD</a>
         </div>
-      </div>
 
-      <!-- PuppySoundSystem Vol. 1 -->
-      <div class="store-row album-puppy">
-        <div class="store-art">
-          <img src="images/album covers/cover3.jpg" alt="PuppySoundSystem Vol. 1 physical CD">
-        </div>
-        <div class="store-details">
-          <div>
-            <div class="store-meta-title">PuppySoundSystem Vol. 1</div>
-            <div class="store-price">Released: June 5, 2026 &bull; $15.00 CD</div>
-            <div class="store-description">
-              started the puppy sound system project to push some heavier electronic stuff. glitchy, loud, and super fun to make.
+        <!-- RECKLESSNESS -->
+        <div class="store-row album-recklessness">
+          <div class="store-art">
+            <img src="images/album covers/cover2.jpg" alt="RECKLESSNESS physical CD">
+          </div>
+          <div class="store-details">
+            <div>
+              <div class="store-meta-title">RECKLESSNESS</div>
+              <div class="store-price">Released: April 23, 2026 &bull; $12.00 CD</div>
+              <div class="store-description">
+                just pure unhinged chaos and noisy melodies. grabbed a bunch of erratic ideas and threw them all into one loud ride.
+              </div>
             </div>
+            <a class="store-link"
+               href="https://kunaki.com/sales.asp?PID=PX00Z1YNCA&pp=1"
+               target="_blank" rel="noopener noreferrer">Buy CD</a>
           </div>
-          <a class="store-link"
-             href="https://kunaki.com/sales.asp?PID=PX00ZJ613P&pp=1"
-             target="_blank" rel="noopener noreferrer">Buy CD</a>
         </div>
-      </div>
 
-      <!-- brain corruption -->
-      <div class="store-row store-teaser album-teaser">
-        <div class="store-art">
-          <img src="images/album covers/cover4(teaser).jpg" alt="brain corruption physical CD">
-        </div>
-        <div class="store-details">
-          <div>
-            <div class="store-meta-title">brain corruption</div>
-            <div class="store-price">Released: August 15, 2026 &bull; $15.00 CD</div>
-            <div class="store-description">
-              brain corruption is now available on CD.
+        <!-- PuppySoundSystem Vol. 1 -->
+        <div class="store-row album-puppy">
+          <div class="store-art">
+            <img src="images/album covers/cover3.jpg" alt="PuppySoundSystem Vol. 1 physical CD">
+          </div>
+          <div class="store-details">
+            <div>
+              <div class="store-meta-title">PuppySoundSystem Vol. 1</div>
+              <div class="store-price">Released: June 5, 2026 &bull; $15.00 CD</div>
+              <div class="store-description">
+                started the puppy sound system project to push some heavier electronic stuff. glitchy, loud, and super fun to make.
+              </div>
             </div>
+            <a class="store-link"
+               href="https://kunaki.com/sales.asp?PID=PX00ZJ613P&pp=1"
+               target="_blank" rel="noopener noreferrer">Buy CD</a>
           </div>
-          <a class="store-link" href="https://kunaki.com/sales.asp?PID=PX00Z91WLO&pp=1" target="_blank" rel="noopener noreferrer">Buy CD</a>
         </div>
-      </div>
 
-    </div>
-
-    <!-- Vinyl Section -->
-    <div style="height: 30px;"></div>
-    <marquee behavior="scroll" direction="left" scrollamount="4" style="display: block; width: 100%; margin-bottom: 30px;">
-      <div style="display: inline-block; width: 800px; margin: 0 auto;">
-        <h2 class="section-heading">Vinyl Releases</h2>
-      </div>
-    </marquee>
-
-    <div class="store-layout">
-
-      <!-- Arf! (Deluxe) Vinyl -->
-      <div class="store-row album-arf">
-        <div class="store-art">
-          <img src="images/album covers/cover1.jpg" alt="Arf! (Deluxe) vinyl record">
-        </div>
-        <div class="store-details">
-          <div>
-            <div class="store-meta-title">Arf! (Deluxe) Vinyl</div>
-            <div class="store-price">Released: April 9, 2026 &bull; Vinyl Edition</div>
-            <div class="store-description">
-              wanted to get arf on actual wax. spinning this physically hits completely different, highly recommend if you love heavy physical media.
+        <!-- brain corruption -->
+        <div class="store-row store-teaser album-teaser">
+          <div class="store-art">
+            <img src="images/album covers/cover4(teaser).jpg" alt="brain corruption physical CD">
+          </div>
+          <div class="store-details">
+            <div>
+              <div class="store-meta-title">brain corruption</div>
+              <div class="store-price">Released: August 15, 2026 &bull; $15.00 CD</div>
+              <div class="store-description">
+                brain corruption is now available on CD.
+              </div>
             </div>
+            <a class="store-link" href="https://kunaki.com/sales.asp?PID=PX00Z91WLO&pp=1" target="_blank" rel="noopener noreferrer">Buy CD</a>
           </div>
-          <a class="store-link"
-             href="https://kunaki.com/VinylRecord.asp?ProductId=PX0095OVJU"
-             target="_blank" rel="noopener noreferrer">Buy Vinyl</a>
         </div>
+
       </div>
 
+      <!-- Vinyl Section -->
+      <div style="height: 25px;"></div>
+      <marquee behavior="scroll" direction="left" scrollamount="4" style="display: block; width: 100%; margin-bottom: 20px;">
+        <div style="display: inline-block; width: 800px; margin: 0 auto;">
+          <h2 class="section-heading">Vinyl Releases</h2>
+        </div>
+      </marquee>
+
+      <div class="store-layout" style="margin-bottom: 20px;">
+
+        <!-- Arf! (Deluxe) Vinyl -->
+        <div class="store-row album-arf">
+          <div class="store-art">
+            <img src="images/album covers/cover1.jpg" alt="Arf! (Deluxe) vinyl record">
+          </div>
+          <div class="store-details">
+            <div>
+              <div class="store-meta-title">Arf! (Deluxe) Vinyl</div>
+              <div class="store-price">Released: April 9, 2026 &bull; Vinyl Edition</div>
+              <div class="store-description">
+                wanted to get arf on actual wax. spinning this physically hits completely different, highly recommend if you love heavy physical media.
+              </div>
+            </div>
+            <a class="store-link"
+               href="https://kunaki.com/VinylRecord.asp?ProductId=PX0095OVJU"
+               target="_blank" rel="noopener noreferrer">Buy Vinyl</a>
+          </div>
+        </div>
+
+      </div>
     </div>
 
     <!-- Footer -->
@@ -474,7 +512,7 @@
 
     <!-- Contact Info Modal -->
     <div id="contactModal" class="modal-overlay" onclick="outsideClick(event, 'contactModal')">
-      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 420px;">
+      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
         <div class="modal-box-header">Contact Info</div>
         <div class="modal-box-sub">Email: <a href="mailto:ash.08.514812@gmail.com" style="color: #d8b4fe; text-decoration: underline;">ash.08.514812@gmail.com</a></div>
         <div class="modal-box-sub" style="font-size: 13px; line-height: 1.4;">If you need my phone number, please contact me via email first before requesting it!</div>
@@ -484,7 +522,7 @@
 
     <!-- Version Info Modal -->
     <div id="versionModal" class="modal-overlay" onclick="outsideClick(event, 'versionModal')">
-      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 480px; max-height: 85vh;">
+      <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; max-height: 85vh;">
         <div class="modal-box-header">Website Version</div>
 
         <div class="modal-box-sub">Current Version: <strong>Version 2.3.1</strong></div>
